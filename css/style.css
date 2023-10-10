@@ -4,10 +4,10 @@
 }
 
 :root {
-    --main-font: 'Pretendard-Regular';
+    --main-font: 'Pretendard';
 
     /* color */
-    --primary-color: 'FF665C';
+    --primary-color: #FF665C;
     --gray-300: #E0E0E0;
     --gray-400: #BDBDBD;
     --gray-500: #9E9E9E;
