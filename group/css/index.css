@@ -1,0 +1,37 @@
+html,
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.search{
+    width: 70%;
+    height: 40px;
+    border-radius: 5px;
+    border: calc(--gray-300) 1px;
+    padding-left: 10px;
+}
+h1{
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+.group-container{
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+}
+.group-box{
+    position: relative;
+    width: 35vw;
+    height: 35vw;
+    margin: 5%;
+    background-color: #FFE0DE;
+    padding: 15px;
+    border-radius: 10px;
+}
+.group-member{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 15px;
+}
