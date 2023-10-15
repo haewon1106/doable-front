@@ -14,6 +14,7 @@ loginButton.onclick = () => {
     axios.post('http://localhost:8080/api/auth/login', loginRequest)
     .then(response => {
         console.log('Registration successful:', response.data);
+        window.open(`../main/main.html?id=${response.data.memberNo}`, '_top');
     })
     .catch(error => {
         console.error('Registration failed:', error);
