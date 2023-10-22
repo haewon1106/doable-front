@@ -8,49 +8,9 @@ body{
 body::-webkit-scrollbar{
     display: none;
 }
-.menu {
-    position: fixed;
-    height: 70px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
-    background-color: var(--white);
-}
-a{
-    display: flex;
-    flex-direction: column;
-    height: 70px;
-    justify-content: center;
-}
+
 p{
     margin: 0;
-}
-li{
-  width: 20%;
-}
-.menu-details ul {
-  list-style-type: none;
-  height: 70px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  column-gap: 20px;
-}
-.menu-details ul li a {
-  text-decoration: none;
-}
-.bx{
-    font-size: 23px;
-    color: var(--gray-400);
-}
-.bar-name{
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 0;
-    color: var(--gray-400);
 }
 .ment{
     display: flex;
