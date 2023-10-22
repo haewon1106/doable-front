@@ -50,7 +50,7 @@ html, body {
     bottom: 10vh;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    row-gap: 15px;
 }
 
 .login_button,
