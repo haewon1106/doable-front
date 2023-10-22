@@ -5,36 +5,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="input-container">
         <input type="text" placeholder="그룹을 입력하세요" class="search">
+        <i class='bx bx-plus' onclick="location.href='../group-create/index.html'"></i>
     </div>
 
-    <h1>가입한 그룹</h1>
+    <h1 class="join-group">가입한 그룹</h1>
     <div class="group-container">
         <div class="group-box">
             <p class="group-name">밥 덜 먹기 소식좌 모임</p>
-            <p class="group-member">8</p>
+            <div class="group-member">
+                <p class="num">9</p>
+                <i class='bx bx-user' ></i>
+            </div>
         </div>
         <div class="group-box">
             <p class="group-name">물 2L먹는 하마</p>
-            <p class="group-member">12</p>
+            <div class="group-member">
+                <p class="num">9</p>
+                <i class='bx bx-user' ></i>
+            </div>
         </div>
         <div class="group-box">
             <p class="group-name">공부 12시간 하기🤓</p>
-            <p class="group-member">9</p>
+            <div class="group-member">
+                <p class="num">9</p>
+                <i class='bx bx-user' ></i>
+            </div>
         </div>
         <div class="group-box">
             <p class="group-name">간식 안먹기 챌린지!!</p>
-            <p class="group-member">11</p>
+            <div class="group-member">
+                <p class="num">9</p>
+                <i class='bx bx-user' ></i>
+            </div>
         </div>
         <div class="group-box">
             <p class="group-name">같이 운동해요</p>
-            <p class="group-member">7</p>
+            <div class="group-member">
+                <p class="num">9</p>
+                <i class='bx bx-user' ></i>
+            </div>
         </div>
     </div>
+    <div class="goal-container">
+        <div class="goal-box">
+            <p>목표</p>
+            <h1>평소 마시던 물에서 한 잔씩 더 마셔서<br>
+                꾸준히 2L 마시기🐋
+            </h1>
+        </div>
+        <div class="goal-box">
+            <p>어제 목표를 가장 잘 완수한 유저</p>
+            <div class="good-user">
+                <h1>이해원님,</h1>
+                <h1>+5잔</h1>
+            </div>
+        </div>
+        <div class="goal-box">
+            <p>기록하기</p>
+            <div class="record-box">
+                <input type="text" class="unit-box"><p class="unit">잔</p>
+            </div>
+        </div>
+        <div class="check-container">
+            <p class="check-text">오늘은 목표를 이루어내지 못 했어요 😭</p>
+            <input type="checkbox" name="check" id="check">
+        </div>
+        <button class="registration-btn">등록하기</button>
+    </div>
+    <div class="menu">
+        <div class="menu-details">
+          <ul>
+            <li>
+                <a href="#">
+                    <i class='bx bx-home-alt bar-icon'></i>
+                    <p class="bar-name">홈</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-check bar-icon'></i>
+                    <p class="bar-name">목표관리</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-group bar-icon'></i>
+                    <p class="bar-name">그룹</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user bar-icon'></i>
+                    <p class="bar-name">마이페이지</p>
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 </body>
 </html>
