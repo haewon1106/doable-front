@@ -11,7 +11,7 @@ function setDate() {
     const currentDay = today.getDay(); 
   
     // 현재 날짜에서 일요일까지의 날짜 차이를 계산
-    const daysUntilSunday = 0 - currentDay;
+    const daysUntilSunday = 1 - currentDay;
   
     // 현재 날짜에 일요일까지의 날짜 차이를 더하여 일요일의 날짜를 계산
     today.setDate(today.getDate() + daysUntilSunday);
@@ -32,11 +32,11 @@ function setDate() {
 }
 
 async function setInfo() {
-    await axios.get(`http://localhost:8080/api/members/${id}`)
+    await axios.get(`http://localhost:3000/users/${id}`)
         .then((response) => { 
             console.log('Registration successful:', response.data);
 
-            let user = response.data;
+            let user = response.data.user;
             welcomeComent.innerHTML = `안녕하세요, ${user.name}님`;
             remainingGoals.innerHTML = `오늘의 목표가 0개 남았습니다`; // TODO: 칼럼 추가해서 남은 투두 개수 계산하기
 
