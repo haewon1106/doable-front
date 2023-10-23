@@ -22,18 +22,20 @@ pwCheckInput.onblur = checkPW;
 joinButton.onclick = () => {
 
     let name = nameInput.value;
-    let memberId = idInput.value;
+    let userid = idInput.value;
     let password = pwInput.value;
-    let email = mailInput.value + '@' + mailDomainSelbox.value;
+    let email = mailInput.value + '@' + mailDomainSelbox.value + 'com';
 
     const userData = {
         name: name,
-        memberId: memberId,
+        userid: userid,
         password: password,
         email: email
-      };
+    };
 
-    axios.post('http://localhost:8080/api/members/member', userData)
+    console.log(userData);
+
+    axios.post('http://localhost:3000/join', userData)
     .then(response => {
         console.log('Registration successful:', response.data);
     })
