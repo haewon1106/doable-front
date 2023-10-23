@@ -38,6 +38,7 @@ joinButton.onclick = () => {
     axios.post('http://localhost:3000/join', userData)
     .then(response => {
         console.log('Registration successful:', response.data);
+        window.open('/login', '_top');
     })
     .catch(error => {
         console.error('Registration failed:', error);
