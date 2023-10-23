@@ -13,9 +13,10 @@ loginButton.onclick = () => {
 
     axios.post('http://localhost:3000/login', loginRequest)
     .then(response => {
+        console.log(response)
         console.log('Registration successful:', response.data);
-        // window.open(`../main/?id=${response.data.memberNo}`, '_top');
-        // setCookie('login', response.data.memberNo, 10);
+        window.open(`../main/?id=${response.data.user.id}`, '_top');
+        setCookie('login', response.data.user.id, 10);
     })
     .catch(error => {
         console.error('Registration failed:', error);
