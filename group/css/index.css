@@ -35,6 +35,9 @@ h1{
     margin: 2% 0;
     font-size: 1.3rem;
 }
+input{
+    outline: none;
+}
 .goal-container{
     display: flex;
     flex-direction: column;
@@ -100,6 +103,7 @@ p{
     outline: none;
     border-radius: 5px;
     border: solid var(--gray-400) 1px;
+    padding-left: 3%;
 }
 .unit{
     font-size: 1.3rem;
