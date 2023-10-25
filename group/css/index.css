@@ -46,7 +46,6 @@ h1{
     margin-left: 7%;
 }
 .group-container{
-    width: max-content;
     display: flex;
     flex-wrap: nowrap;
     overflow: auto;
@@ -58,7 +57,9 @@ h1{
     display: none;
 }
 .group-box{
+    display: inline-block;
     position: relative;
+    flex: 0 0 auto;
     width: 35vw;
     height: 35vw;
     background-color: var(--second-color);
