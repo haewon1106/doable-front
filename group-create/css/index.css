@@ -9,6 +9,11 @@ main{
     padding: 8%;
     row-gap: 4vh;
 }
+input:focus::placeholder,
+textarea:focus::placeholder{
+    color:transparent;
+}
+
 .create-group-container{
     display: flex;
     column-gap: 5vw;
