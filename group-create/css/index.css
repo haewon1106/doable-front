@@ -62,20 +62,6 @@ select{
     flex-direction: column;
     row-gap: 2vh;
 }
-.category-box{
-    display: flex;
-    flex-direction: column;
-    row-gap: 1vh;
-}
-.category{
-    padding: 0 1.5vh;
-}
-.category-color{
-    width: 18px;
-    height: 18px;
-    background-color: #FFE0DE;
-    border-radius: 100%;
-}
 .setting-text{
     font-size: 1.1rem;
 }
@@ -144,7 +130,7 @@ select{
     border-radius: 5px;
     color: var(--white);
     font-size: 1rem;
-    margin-bottom: 7vh;
+    margin: 3vh 0 7vh 0 ;
 }
 /* switch */
 fieldset {
