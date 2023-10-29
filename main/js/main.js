@@ -3,7 +3,9 @@ const remainingGoals = document.getElementsByClassName('remaining-goals')[0];
 const dateDiv = document.getElementsByClassName('year')[0];
 const dayList = document.getElementsByClassName('day');
 
-const id = new URL(location.href).searchParams.get('id');
+const userData = JSON.parse(localStorage.getItem("user"));
+console.log(userData);
+const id = userData.id;
 
 function setDate() {
     const now = new Date();
@@ -63,6 +65,8 @@ async function setInfo() {
             console.error(err);
         });
 }
+
+// TODO: todo 정보 가져오기
 
 setInfo();
 setDate();
