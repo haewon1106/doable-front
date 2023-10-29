@@ -11,11 +11,17 @@ loginButton.onclick = () => {
         password: password
     };
 
-    axios.post('http://localhost:3000/login', loginRequest)
+    axios.post('http://localhost:3000/auth/login', loginRequest)
     .then(response => {
+        console.log(response)
         console.log('Registration successful:', response.data);
-        // window.open(`../main/?id=${response.data.memberNo}`, '_top');
-        // setCookie('login', response.data.memberNo, 10);
+        const userData = response.data.user;
+        console.log(userData);
+        localStorage.setItem("user", JSON.stringify(userData));
+        console.log(JSON.parse(localStorage.getItem("user")))
+        window.open('../main', '_top');
+        setCookie('login', response.data.user.id, 10);
+
     })
     .catch(error => {
         console.error('Registration failed:', error);
