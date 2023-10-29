@@ -15,8 +15,13 @@ loginButton.onclick = () => {
     .then(response => {
         console.log(response)
         console.log('Registration successful:', response.data);
-        window.open(`../main/?id=${response.data.user.id}`, '_top');
+        const userData = response.data.user;
+        console.log(userData);
+        localStorage.setItem("user", JSON.stringify(userData));
+        console.log(JSON.parse(localStorage.getItem("user")))
+        window.open('../main', '_top');
         setCookie('login', response.data.user.id, 10);
+
     })
     .catch(error => {
         console.error('Registration failed:', error);
