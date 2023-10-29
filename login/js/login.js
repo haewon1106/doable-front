@@ -11,7 +11,7 @@ loginButton.onclick = () => {
         password: password
     };
 
-    axios.post('http://localhost:3000/login', loginRequest)
+    axios.post('http://localhost:3000/auth/login', loginRequest)
     .then(response => {
         console.log(response)
         console.log('Registration successful:', response.data);

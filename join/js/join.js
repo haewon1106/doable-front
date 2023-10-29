@@ -35,7 +35,7 @@ joinButton.onclick = () => {
 
     console.log(userData);
 
-    axios.post('http://localhost:3000/join', userData)
+    axios.post('http://localhost:3000/auth/join', userData)
     .then(response => {
         console.log('Registration successful:', response.data);
         window.open('/login', '_top');
