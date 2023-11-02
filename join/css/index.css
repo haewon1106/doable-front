@@ -59,6 +59,7 @@ input::placeholder{
     padding-left: 10px;
     font-size: 14px;
     outline: none;
+    cursor: pointer;
 }
 .join-btn{
     height: 55px;
@@ -68,4 +69,5 @@ input::placeholder{
     border: 0;
     color: var(--white);
     font-size: 16px;
+    cursor: pointer;
 }
