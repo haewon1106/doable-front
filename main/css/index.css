@@ -74,12 +74,14 @@ p{
 .d-day{
     margin-bottom: 4%;
     font-size: 1.1rem;
-    
 }
 .keyword-container{
     display: flex;
     column-gap: 10px;
     overflow-x: scroll;
+}
+::-webkit-scrollbar {
+    display: none;
 }
 .keyword-color{
     width: 18px;
@@ -97,6 +99,7 @@ p{
     background-color: transparent;
     font-size: 13px;
     font-weight: 100;
+    cursor: pointer;
 }
 .keyword-icon{
     display: flex;
@@ -126,6 +129,7 @@ p{
     background-color: var(--white);
     padding: 10px;
     padding-left: 20px;
+    cursor: pointer;
 }
 .goal{
     font-size: 1.1rem;
@@ -154,6 +158,7 @@ p{
     text-align: center;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .week{
     color: var(--gray-300);
