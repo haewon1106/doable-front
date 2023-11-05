@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $(".add-list-btn").addClass("active");
     $(".add-list").show();
+    $(".delete-list").hide();
+    $(".correction-list").hide();
 
     $(".add-list-btn").click(function(){
         $(".delete-list-btn").removeClass("active");
