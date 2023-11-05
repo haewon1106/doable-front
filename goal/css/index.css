@@ -231,8 +231,9 @@ input{
 .checkbox_container{
     display: flex;
     align-items: center;
-    column-gap: 5%;
-    margin-top: 0.8vh;
+    column-gap: 8%;
+    margin-top: 6%h;
+    margin-right: 8%;
 }
 .more-less-text{
     white-space: nowrap;
