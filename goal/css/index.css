@@ -218,5 +218,6 @@ input{
 .add-list-btn.active,
 .delete-list-btn.active,
 .correction-list-btn.active {
-    background-color: var(--second-color); /* active 상태에서 배경색을 --second-color로 변경 */
+    background-color: var(--second-color);
+    border: var(--second-color);
 }
