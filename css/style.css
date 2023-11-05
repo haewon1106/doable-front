@@ -72,3 +72,16 @@ li{
     margin-bottom: 0;
     color: var(--gray-400);
 }
+input,
+select{
+    outline: none;
+}
+textarea:focus::placeholder,
+input:focus::placeholder{
+    color: transparent;
+}
+
+textarea::placeholder,
+input::placeholder{
+    color: var(--gray400);
+}
