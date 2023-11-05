@@ -7,7 +7,6 @@ body{
 body{
     padding: 20px;
 }
-
 .btn-style{
     display: flex;
     justify-content: space-between;
@@ -20,6 +19,10 @@ body{
     border: 1px solid var(--gray-400);
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 3%;
+}
+.add-list-btn{
+    background-color: var(--second-color);
 }
 .add-list{
     margin: 7% 0;
@@ -142,4 +145,76 @@ input{
     margin: 0;
     width: 2vh;
     cursor: pointer;
+}
+.delete-list {
+    display: none;
+}
+.goal-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vw;
+    margin: 6% 0;
+}
+.delete-goal-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.goal-box{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 10px;
+    border: var(--gray-300) solid 1px;
+    border-radius: 5px;
+    background-color: var(--white);
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.goal{
+    font-size: 1.1rem;
+}
+.keyword-icon{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    background-color: transparent;
+}
+.keyword-color{
+    width: 18px;
+    height: 18px;
+    background-color: #FFE0DE;
+    border-radius: 100%;
+}
+.custom-checkbox + label {
+    cursor: pointer;
+}
+
+.custom-checkbox + label::before {
+    content: "";
+    display: inline-block;
+    width: 6vw;
+    height: 6.5vw;
+    border: 1px solid var(--gray-400);
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.custom-checkbox {
+    display: none;
+}
+
+.custom-checkbox:checked + label::before {
+    content: "\2713";
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
