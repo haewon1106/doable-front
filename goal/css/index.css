@@ -94,6 +94,7 @@ input{
     padding-left: 0.5vh;
     width: 100%;
     font-size: 1rem;
+    color: var(--black);
 }
 .amount-setting{
     display: flex;
@@ -220,4 +221,27 @@ input{
 .correction-list-btn.active {
     background-color: var(--second-color);
     border: var(--second-color);
+}
+.more_less_container{
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox_container{
+    display: flex;
+    align-items: center;
+    column-gap: 5%;
+    margin-top: 0.8vh;
+}
+.more-less-text{
+    white-space: nowrap;
+}
+.more_less_amount{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+}
+.day-container{
+    display: flex;
+    column-gap: 10%;
+    margin-top: 8%;
 }
