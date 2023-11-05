@@ -1,17 +1,34 @@
 $(document).ready(function(){
+    $(".add-list-btn").addClass("active");
+    $(".add-list").show();
+
     $(".add-list-btn").click(function(){
-        // 배경 색상을 --second-color로 토글(흰색 <-> --second-color)합니다.
-        $(this).toggleClass("active");
-        $(".add-list").toggle();
+        $(".delete-list-btn").removeClass("active");
+        $(".correction-list-btn").removeClass("active");
+        $(this).addClass("active");
+        
+        $(".delete-list").hide();
+        $(".correction-list").hide();
+        $(".add-list").show();
     });
+
     $(".delete-list-btn").click(function(){
-        // 배경 색상을 --second-color로 토글(흰색 <-> --second-color)합니다.
-        $(this).toggleClass("active");
-        $(".delete-list").toggle();
+        $(".add-list-btn").removeClass("active");
+        $(".correction-list-btn").removeClass("active");
+        $(this).addClass("active");
+        
+        $(".add-list").hide();
+        $(".correction-list").hide();
+        $(".delete-list").show();
     });
+
     $(".correction-list-btn").click(function(){
-        // 배경 색상을 --second-color로 토글(흰색 <-> --second-color)합니다.
-        $(this).toggleClass("active");
-        $(".correction-list").toggle();
+        $(".add-list-btn").removeClass("active");
+        $(".delete-list-btn").removeClass("active");
+        $(this).addClass("active");
+        
+        $(".add-list").hide();
+        $(".delete-list").hide();
+        $(".correction-list").show();
     });
 });

@@ -21,9 +21,6 @@ body{
     cursor: pointer;
     margin-bottom: 3%;
 }
-.add-list-btn{
-    background-color: var(--second-color);
-}
 .add-list{
     margin: 7% 0;
 }
@@ -217,4 +214,9 @@ input{
     font-size: 1.5rem;
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+}
+.add-list-btn.active,
+.delete-list-btn.active,
+.correction-list-btn.active {
+    background-color: var(--second-color); /* active 상태에서 배경색을 --second-color로 변경 */
 }
