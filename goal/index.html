@@ -5,13 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <article class="select">
-        <button class="add-list-btn">목표 추가</button>
-        <ul class="goal-add">
-            
-        </ul>
-    </article>
+    <section class="add-list-container">
+        <button class="add-list-btn btn-style">목표 추가<i class='bx bx-chevron-down'></i></button>
+        <div class="add-list">
+            <div class="category-box">
+                <p class="main-text">카테고리</p>
+                <select name="category" class="category">
+                    <option value="study"><div class="category-color"></div>공부</option>
+                    <option value="diet"><div class="category-color"></div>다이어트</option>
+                    <option value="exercise"><div class="category-color"></div>운동</option>
+                </select>
+            </div>
+            <div class="goal-name-box">
+                <p class="main-text">목표 이름</p>
+                <input type="text" placeholder="목표 이름을 작성하세요" class="goal-name">
+            </div>
+            <div class="amount-container">
+                <div class="amount-setting">
+                    <p class="main-text">양 설정</p>
+                    <select name="amount" class="amount">
+                        <option value="plus"><div class="category-color"></div>더하기</option>
+                        <option value="minus"><div class="category-color"></div>덜하기</option>
+                        <option value="else"><div class="category-color"></div>변화없음</option>
+                    </select>
+                </div>
+                <div class="initial-amount">
+                    <p class="main-text">처음 시작한 양</p>
+                    <div class="initial-box">
+                        <input type="text" class="input-amount">
+                        <div class="up-down-btn">
+                            <button class="up"><i class='bx bx-chevron-up'></i></button>
+                            <button class="down"><i class='bx bx-chevron-down'></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="goal-name-box unit-box">
+                <p class="main-text">단위</p>
+                <input type="text" placeholder="단위를 설정하세요" class="goal-name unit">
+            </div>
+        </div>
+    </section>
+    <section class="delete-list-container">
+        <button class="delete-list-btn btn-style">목표 삭제<i class='bx bx-chevron-down'></i></button>
+        <div class="delete-list"></div>
+    </section>
+    <section class="correction-list-container">
+        <button class="correction-list-btn btn-style">목표 수정<i class='bx bx-chevron-down'></i></button>
+        <div class="correction-list"></div>
+    </section>
+    <script src="./js/index.js"></script>
 </body>
 </html>
