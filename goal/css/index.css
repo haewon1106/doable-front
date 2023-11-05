@@ -32,6 +32,9 @@ body{
     flex-direction: column;
     row-gap: 3vh;
 }
+.delete-list{
+    row-gap: 2vh;
+}
 .category{
     height: 45px;
     padding-right: 4vw;
