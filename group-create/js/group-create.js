@@ -72,7 +72,7 @@ createButton.onclick = () => {
 
     console.log(groupData);
 
-    axios.post('http://localhost:3000/groups', groupData)
+    axios.post(`${BASE_URL}/groups`, groupData)
         .then(response => {
             console.log(response.data);
             window.open('../group', '_top');
