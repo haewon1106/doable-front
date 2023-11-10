@@ -3,10 +3,11 @@ const remainingGoals = document.getElementsByClassName('remaining-goals')[0];
 const dateDiv = document.getElementsByClassName('year')[0];
 const dayList = document.getElementsByClassName('day');
 const todosDiv = document.getElementsByClassName('goals-btn')[0];
+const categoriesDiv = document.getElementsByClassName('goals-container')[0];
 
 showUserInfo();
 setDate();
-showUsersTodos();
+showUsersCategories();
 
 function setDate() {
     const now = new Date();
@@ -69,9 +70,9 @@ async function showUsersTodos() {
     todosDiv.innerHTML = '';
     await axios.get(`${BASE_URL}/todos/${USER_NO}`)
         .then(response => {
-            const todos = response.data;
-            console.log(todos);
-            for (let todo of todos) {
+            const dataList = response.data;
+            for (let data of dataList) {
+                console.log(data);
                 const goalBox = document.createElement('div');
                 goalBox.className = 'goal-box';
 
@@ -80,15 +81,15 @@ async function showUsersTodos() {
 
                 const keywordColor = document.createElement('div');
                 keywordColor.className = 'keyword-color';
-                keywordColor.style.backgroundColor = todo.category.color_code;
+                keywordColor.style.backgroundColor = data.category.color_code;
 
                 const keywordName = document.createElement('p');
                 keywordName.className = 'keyword-name';
-                keywordName.innerHTML = todo.category.category_name;
+                keywordName.innerHTML = data.category.category_name;
 
                 const goal = document.createElement('goal');
                 goal.className = 'goal';
-                goal.innerHTML = todo.todo_name;
+                goal.innerHTML = data.todo_name;
 
                 keywordIcon.appendChild(keywordColor);
                 keywordIcon.appendChild(keywordName);
@@ -97,5 +98,52 @@ async function showUsersTodos() {
 
                 todosDiv.appendChild(goalBox);
             }
+        })
+        .catch(err => {
+            console.error(err);
         });
+
+        categoriesDiv.appendChild(todosDiv);
+}
+
+async function showUsersCategories() {
+
+    const dDay = document.createElement('p');
+    dDay.className = 'd-day';
+    dDay.innerHTML = 'D-DAY';
+    categoriesDiv.innerHTML = '';
+    categoriesDiv.appendChild(dDay);
+
+    await axios.get(`${BASE_URL}/category/user/${USER_NO}`)
+        .then(response => {
+            const dataList = response.data;
+            for (let data of dataList) {
+                console.log(data);
+                const keywordContainer = document.createElement('div');
+                keywordContainer.className = 'keyword-container';
+
+                const keyword = document.createElement('div');
+                keyword.className = 'keyword';
+
+                const keywordColor = document.createElement('div');
+                keywordColor.className = 'keyword-color';
+                keywordColor.style.backgroundColor = data.color_code;
+
+                const keywordName = document.createElement('p');
+                keywordName.className = 'keyword-name';
+                keywordName.innerHTML = data.category_name;
+
+                keyword.appendChild(keywordColor);
+                keyword.appendChild(keywordName);
+                keywordContainer.appendChild(keyword);
+                categoriesDiv.appendChild(keywordContainer);
+            }
+
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
+
+    showUsersTodos();
 }
