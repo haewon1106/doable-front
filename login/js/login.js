@@ -11,16 +11,13 @@ loginButton.onclick = () => {
         password: password
     };
 
-    axios.post('http://localhost:3000/auth/login', loginRequest)
+    axios.post(`${BASE_URL}/auth/login`, loginRequest)
     .then(response => {
-        console.log(response)
-        console.log('Registration successful:', response.data);
+        console.log(response);
         const userData = response.data.user;
-        console.log(userData);
-        localStorage.setItem("user", JSON.stringify(userData));
-        console.log(JSON.parse(localStorage.getItem("user")))
+        setCookie('login', userData.user_no);
+        console.log('Registration successful:', response.data);
         window.open('../main', '_top');
-        setCookie('login', response.data.user.id, 10);
 
     })
     .catch(error => {
@@ -28,10 +25,3 @@ loginButton.onclick = () => {
     });
 };
 
-function setCookie(cookie_name, value, days) {
-    var exdate = new Date();
-    exdate.setDate(exdate.getDate() + days);
-  
-    var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
-    document.cookie = cookie_name + '=' + cookie_value;
-  }
