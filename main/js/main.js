@@ -3,9 +3,8 @@ const remainingGoals = document.getElementsByClassName('remaining-goals')[0];
 const dateDiv = document.getElementsByClassName('year')[0];
 const dayList = document.getElementsByClassName('day');
 
-const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData);
-const id = userData.id;
+setUserInfo();
+setDate();
 
 function setDate() {
     const now = new Date();
@@ -51,13 +50,11 @@ function getLastDayOfMonth() {
     return lastDay.getDate(); 
 }
 
-async function setInfo() {
-    await axios.get(`http://localhost:3000/users/${id}`)
+async function setUserInfo() {
+    await axios.get(`${BASE_URL}/users/${USER_NO}`)
         .then((response) => { 
-            console.log('Registration successful:', response.data);
-
             let user = response.data.user;
-            welcomeComent.innerHTML = `안녕하세요, ${user.name}님`;
+            welcomeComent.innerHTML = `안녕하세요, ${user.user_name}님`;
             remainingGoals.innerHTML = `오늘의 목표가 0개 남았습니다`; // TODO: 칼럼 추가해서 남은 투두 개수 계산하기
 
             welcomeComent
@@ -65,8 +62,3 @@ async function setInfo() {
             console.error(err);
         });
 }
-
-// TODO: todo 정보 가져오기
-
-setInfo();
-setDate();
