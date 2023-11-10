@@ -2,9 +2,11 @@ const welcomeComent = document.getElementsByClassName('welcome-comment')[0];
 const remainingGoals = document.getElementsByClassName('remaining-goals')[0];
 const dateDiv = document.getElementsByClassName('year')[0];
 const dayList = document.getElementsByClassName('day');
+const todosDiv = document.getElementsByClassName('goals-btn')[0];
 
-setUserInfo();
+showUserInfo();
 setDate();
+showUsersTodos();
 
 function setDate() {
     const now = new Date();
@@ -50,15 +52,50 @@ function getLastDayOfMonth() {
     return lastDay.getDate(); 
 }
 
-async function setUserInfo() {
+async function showUserInfo() {
     await axios.get(`${BASE_URL}/users/${USER_NO}`)
-        .then((response) => { 
-            let user = response.data.user;
+        .then(response => { 
+            const user = response.data.user;
             welcomeComent.innerHTML = `안녕하세요, ${user.user_name}님`;
             remainingGoals.innerHTML = `오늘의 목표가 0개 남았습니다`; // TODO: 칼럼 추가해서 남은 투두 개수 계산하기
 
             welcomeComent
         }).catch((err) => {
             console.error(err);
+        });
+}
+
+async function showUsersTodos() {
+    todosDiv.innerHTML = '';
+    await axios.get(`${BASE_URL}/todos/${USER_NO}`)
+        .then(response => {
+            const todos = response.data;
+            console.log(todos);
+            for (let todo of todos) {
+                const goalBox = document.createElement('div');
+                goalBox.className = 'goal-box';
+
+                const keywordIcon = document.createElement('div');
+                keywordIcon.className = 'keyword-icon';
+
+                const keywordColor = document.createElement('div');
+                keywordColor.className = 'keyword-color';
+                keywordColor.style.backgroundColor = todo.category.color_code;
+
+                const keywordName = document.createElement('p');
+                keywordName.className = 'keyword-name';
+                keywordName.innerHTML = todo.category.category_name;
+
+                const goal = document.createElement('goal');
+                goal.className = 'goal';
+                goal.innerHTML = todo.todo_name;
+
+                keywordIcon.appendChild(keywordColor);
+                keywordIcon.appendChild(keywordName);
+                goalBox.appendChild(keywordIcon);
+                goalBox.appendChild(goal);
+
+                todosDiv.appendChild(goalBox);
+            }
         });
 }
