@@ -13,7 +13,7 @@
 
 <body>
     <div class="input-container">
-        <input type="text" placeholder="그룹을 입력하세요" class="search">
+        <input type="text" placeholder="그룹을 이름으로 검색하세요" class="search">
         <i class='bx bx-plus' onclick="location.href='../group-create/index.html'"></i>
     </div>
 
@@ -58,21 +58,21 @@
     <div class="goal-container">
         <div class="goal-box">
             <p>목표</p>
-            <h1>평소 마시던 물에서 한 잔씩 더 마셔서<br>
+            <h1 class="todo-name">평소 마시던 물에서 한 잔씩 더 마셔서<br>
                 꾸준히 2L 마시기🐋
             </h1>
         </div>
         <div class="goal-box">
             <p>어제 목표를 가장 잘 완수한 유저</p>
             <div class="good-user">
-                <h1>이해원님,</h1>
-                <h1>+5잔</h1>
+                <h1 class="best-username">이해원님,</h1>
+                <h1 class="best-amount">+5잔</h1>
             </div>
         </div>
         <div class="goal-box">
             <p>기록하기</p>
             <div class="record-box">
-                <input type="text" class="unit-box">
+                <input type="text" class="unit-box" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 <p class="unit">잔</p>
             </div>
         </div>
@@ -113,6 +113,13 @@
             </ul>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../config/config.js"></script>
+    <script src="./js/group.js"></script>
+    </body><script src="./js/groupData.js"></script>
+    
 </body>
+
 
 </html>
