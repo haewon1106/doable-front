@@ -48,7 +48,7 @@ function getLastDayOfMonth() {
 async function showUserInfo() {
     await axios.get(`${BASE_URL}/users/${USER_NO}`)
         .then(response => { 
-            const user = response.data.user;
+            const user = response.data;
             welcomeComent.innerHTML = `안녕하세요, ${user.user_name}님`;
             remainingGoals.innerHTML = `오늘의 목표가 0개 남았습니다`; // TODO: 칼럼 추가해서 남은 투두 개수 계산하기
 
