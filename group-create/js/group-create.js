@@ -9,10 +9,6 @@ const amountDownButton = document.getElementsByClassName('down')[0];
 const unitField = document.getElementsByClassName('unit')[0];
 const createButton = document.getElementsByClassName('create-btn')[0];
 
-const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData);
-const userId = userData.id;
-
 amountUpButton.onclick = () => {
     // TODO: 숫자가 아닌 텍스트 검증하기
     if (amountField.value === "") {
@@ -55,7 +51,7 @@ createButton.onclick = () => {
     }
 
     const groupData = {
-        creator_id: userId,
+        creator_id: USER_NO,
         group_name: groupName,
         group_description: groupDescription,
         allow_search: allowSearch,
@@ -64,11 +60,6 @@ createButton.onclick = () => {
         member_count: 1,
         unit: unit
     };
-
-    // 물 먹는 하마들
-    //물을 많이 마시면 피부도 좋아지고 혈액순환도 잘 된대여
-    //물 5잔 마시기
-    //잔
 
     console.log(groupData);
 
