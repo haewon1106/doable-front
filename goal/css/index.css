@@ -229,7 +229,7 @@ input{
 }
 .more_less_container{
     display: flex;
-    justify-content: space-between;
+    column-gap: 5%;
 }
 .checkbox_container{
     display: flex;
