@@ -72,17 +72,17 @@
                 </div>
                 <div class="more_less_amount">
                     <div class="main-text">양</div>
-                    <input type="text" class="input-amount">
+                    <input type="text" class="input-amount" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
             </div>
             <div class="day-container">
                 <div class="start-container">
                     <p class="main-text">시작 날짜</p>
-                    <input type="text" placeholder="ex) 0000 / 00 / 00" class="goal-name unit">
+                    <input type="text" placeholder="ex) 0000 / 00 / 00" class="goal-name unit" id="start-date">
                 </div>
                 <div class="end-container">
                     <p class="main-text">종료 날짜</p>
-                    <input type="text" placeholder="ex) 0000 / 00 / 00" class="goal-name unit">
+                    <input type="text" placeholder="ex) 0000 / 00 / 00" class="goal-name unit" id="end-date">
                 </div>
             </div>
 
@@ -143,20 +143,20 @@
                     <p class="main-text">양 설정</p>
                     <select name="amount" class="amount">
                         <option value="plus">
-                            <div class="category-color"></div>더하기
+                            더하기
                         </option>
                         <option value="minus">
-                            <div class="category-color"></div>덜하기
+                            덜하기
                         </option>
                         <option value="else">
-                            <div class="category-color"></div>변화없음
+                            변화없음
                         </option>
                     </select>
                 </div>
                 <div class="initial-amount">
                     <p class="main-text">처음 시작한 양</p>
                     <div class="initial-box">
-                        <input type="text" class="input-amount">
+                        <input type="text" class="input-amount" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                         <div class="up-down-btn">
                             <button class="up"><i class='bx bx-chevron-up'></i></button>
                             <button class="down"><i class='bx bx-chevron-down'></i></button>
@@ -176,17 +176,17 @@
                 </div>
                 <div class="more_less_amount">
                     <div class="main-text">양</div>
-                    <input type="text" class="input-amount">
+                    <input type="text" class="input-amount" id="increase-amount" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
             </div>
             <div class="day-container">
                 <div class="start-container">
                     <p class="main-text">시작 날짜</p>
-                    <input type="text" placeholder="ex) 0000 / 00 / 00" class="goal-name unit">
+                    <input type="text" placeholder="ex) 0000 - 00 - 00" class="goal-name unit">
                 </div>
                 <div class="end-container">
                     <p class="main-text">종료 날짜</p>
-                    <input type="text" placeholder="ex) 0000 / 00 / 00" class="goal-name unit">
+                    <input type="text" placeholder="ex) 0000 - 00 - 00" class="goal-name unit">
                 </div>
             </div>
             <button class="correction-btn inner-btn-style">목표 수정</button>
@@ -222,7 +222,10 @@
             </ul>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/index.js"></script>
+    <script src="../config/config.js"></script>
+    <script src="./js/todo.js"></script>
 </body>
 
 </html>
