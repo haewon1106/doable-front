@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,10 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <div class="input-container">
-        <input type="text" placeholder="그룹을 입력하세요" class="search">
+        <input type="text" placeholder="그룹을 이름으로 검색하세요" class="search">
         <i class='bx bx-plus' onclick="location.href='../group-create/index.html'"></i>
     </div>
 
@@ -21,56 +23,57 @@
             <p class="group-name">밥 덜 먹기 소식좌 모임</p>
             <div class="group-member">
                 <p class="num">9</p>
-                <i class='bx bx-user' ></i>
+                <i class='bx bx-user'></i>
             </div>
         </div>
         <div class="group-box">
             <p class="group-name">물 2L먹는 하마</p>
             <div class="group-member">
                 <p class="num">9</p>
-                <i class='bx bx-user' ></i>
+                <i class='bx bx-user'></i>
             </div>
         </div>
         <div class="group-box">
             <p class="group-name">공부 12시간 하기🤓</p>
             <div class="group-member">
                 <p class="num">9</p>
-                <i class='bx bx-user' ></i>
+                <i class='bx bx-user'></i>
             </div>
         </div>
         <div class="group-box">
             <p class="group-name">간식 안먹기 챌린지!!</p>
             <div class="group-member">
                 <p class="num">9</p>
-                <i class='bx bx-user' ></i>
+                <i class='bx bx-user'></i>
             </div>
         </div>
         <div class="group-box">
             <p class="group-name">같이 운동해요</p>
             <div class="group-member">
                 <p class="num">9</p>
-                <i class='bx bx-user' ></i>
+                <i class='bx bx-user'></i>
             </div>
         </div>
     </div>
     <div class="goal-container">
         <div class="goal-box">
             <p>목표</p>
-            <h1>평소 마시던 물에서 한 잔씩 더 마셔서<br>
+            <h1 class="todo-name">평소 마시던 물에서 한 잔씩 더 마셔서<br>
                 꾸준히 2L 마시기🐋
             </h1>
         </div>
         <div class="goal-box">
             <p>어제 목표를 가장 잘 완수한 유저</p>
             <div class="good-user">
-                <h1>이해원님,</h1>
-                <h1>+5잔</h1>
+                <h1 class="best-username">이해원님,</h1>
+                <h1 class="best-amount">+5잔</h1>
             </div>
         </div>
         <div class="goal-box">
             <p>기록하기</p>
             <div class="record-box">
-                <input type="text" class="unit-box"><p class="unit">잔</p>
+                <input type="text" class="unit-box" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                <p class="unit">잔</p>
             </div>
         </div>
         <div class="check-container">
@@ -82,33 +85,41 @@
     </div>
     <div class="menu">
         <div class="menu-details">
-          <ul>
-            <li>
-                <a href="/main/index.html">
-                    <i class='bx bx-home-alt bar-icon'></i>
-                    <p class="bar-name">홈</p>
-                </a>
-            </li>
-            <li>
-                <a href="/goal/index.html">
-                    <i class='bx bx-check bar-icon'></i>
-                    <p class="bar-name">목표관리</p>
-                </a>
-            </li>
-            <li>
-                <a href="/group/index.html">
-                    <i class='bx bxs-group bar-icon'></i>
-                    <p class="bar-name">그룹</p>
-                </a>
-            </li>
-            <li>
-                <a href="/my-page/index.html">
-                    <i class='bx bx-user bar-icon'></i>
-                    <p class="bar-name">마이페이지</p>
-                </a>
-            </li>
-          </ul>
+            <ul>
+                <li>
+                    <a href="/main">
+                        <i class='bx bx-home-alt bar-icon'></i>
+                        <p class="bar-name">홈</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/goal">
+                        <i class='bx bx-check bar-icon'></i>
+                        <p class="bar-name">목표관리</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/group">
+                        <i class='bx bxs-group bar-icon'></i>
+                        <p class="bar-name">그룹</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/my-page">
+                        <i class='bx bx-user bar-icon'></i>
+                        <p class="bar-name">마이페이지</p>
+                    </a>
+                </li>
+            </ul>
         </div>
-      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../config/config.js"></script>
+    <script src="./js/group.js"></script>
+    </body><script src="./js/groupData.js"></script>
+    
 </body>
+
+
 </html>

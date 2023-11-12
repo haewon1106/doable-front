@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <main>
         <div class="create-group-container">
@@ -18,7 +20,8 @@
         <div class="group-information-container">
             <p class="main-text">그룹 기본 정보 입력</p>
             <input type="text" placeholder="* 그룹 이름" class="group-name">
-            <textarea name="group-description" class="group-description" cols="30" rows="10" placeholder="* 그룹 설명" ></textarea>
+            <textarea name="group-description" class="group-description" cols="30" rows="10"
+                placeholder="* 그룹 설명"></textarea>
         </div>
         <div class="select-search-container">
             <div class="text-container">
@@ -42,9 +45,15 @@
             <div class="amount-setting">
                 <p class="main-text">양 설정</p>
                 <select name="amount" class="amount">
-                    <option value="plus"><div class="category-color"></div>더하기</option>
-                    <option value="minus"><div class="category-color"></div>덜하기</option>
-                    <option value="else"><div class="category-color"></div>변화없음</option>
+                    <option value="plus">
+                        <div class="category-color"></div>더하기
+                    </option>
+                    <option value="minus">
+                        <div class="category-color"></div>덜하기
+                    </option>
+                    <option value="else">
+                        <div class="category-color"></div>변화없음
+                    </option>
                 </select>
             </div>
             <div class="initial-amount">
@@ -65,36 +74,38 @@
         <button class="create-btn">등록하기</button>
         <div class="menu">
             <div class="menu-details">
-              <ul>
-                <li>
-                    <a href="/main/index.html">
-                        <i class='bx bx-home-alt bar-icon'></i>
-                        <p class="bar-name">홈</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/goal/index.html">
-                        <i class='bx bx-check bar-icon'></i>
-                        <p class="bar-name">목표관리</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/group/index.html">
-                        <i class='bx bxs-group bar-icon'></i>
-                        <p class="bar-name">그룹</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/my-page/index.html">
-                        <i class='bx bx-user bar-icon'></i>
-                        <p class="bar-name">마이페이지</p>
-                    </a>
-                </li>
-              </ul>
+                <ul>
+                    <li>
+                        <a href="/main">
+                            <i class='bx bx-home-alt bar-icon'></i>
+                            <p class="bar-name">홈</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/goal">
+                            <i class='bx bx-check bar-icon'></i>
+                            <p class="bar-name">목표관리</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/group">
+                            <i class='bx bxs-group bar-icon'></i>
+                            <p class="bar-name">그룹</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/my-page">
+                            <i class='bx bx-user bar-icon'></i>
+                            <p class="bar-name">마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </div>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../config/config.js"></script>
     <script src="./js/group-create.js"></script>
 </body>
+
 </html>
