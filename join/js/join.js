@@ -28,15 +28,15 @@ joinButton.onclick = () => {
     let email = mailInput.value + '@' + mailDomainSelbox.value + 'com';
 
     const userData = {
-        name: name,
-        userid: userid,
-        password: password,
-        email: email
+        user_name: name,
+        user_id: userid,
+        user_pw: password,
+        user_email: email
     };
 
     console.log(userData);
 
-    axios.post(`${BASE_URL}/auth/join`, userData)
+    axios.post(`${BASE_URL}/join`, userData)
     .then(response => {
         console.log('Registration successful:', response.data);
         window.open('/login', '_top');

@@ -43,22 +43,19 @@ createButton.onclick = () => {
     let goalName = goalNameField.value;
     let unit = unitField.value;
 
-    let operationType = '더하기';
+    let operationType = 0;
     if (amountSelect.value === 'minus') {
-        operationType = '덜하기';
-    } else {
-        operationType = '변화 없음';
+        operationType = 1;
     }
 
     const groupData = {
-        creator_id: USER_NO,
+        creator_no: USER_NO,
         group_name: groupName,
-        group_description: groupDescription,
-        allow_search: allowSearch,
-        goal_name: goalName,
-        operation_type: operationType,
-        member_count: 1,
-        unit: unit
+        group_desc: groupDescription,
+        group_search: allowSearch,
+        group_todo: goalName,
+        group_option: operationType,
+        group_unit: unit
     };
 
     console.log(groupData);
