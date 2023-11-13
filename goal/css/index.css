@@ -32,9 +32,6 @@ body{
     flex-direction: column;
     row-gap: 3vh;
 }
-.delete-list{
-    row-gap: 2vh;
-}
 .category{
     height: 45px;
     padding-right: 4vw;
@@ -255,7 +252,19 @@ input{
 }
 .day-container{
     display: flex;
-    column-gap: 10%;
+    column-gap: 7%;
+}
+.start-container,
+.end-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+}
+#start-date,
+#end-date{
+    width: 42vw;
+    height: 5vh;
+    padding: 5%;
 }
 .inner-btn-style{
     height: 55px;
@@ -265,4 +274,10 @@ input{
     border: 0;
     border-radius: 5px;
     cursor: pointer;
+}
+.selboxDirect{
+    width: 80vw;
+    height: 5vh;
+    padding: 3%;
+    color: var(--black);
 }

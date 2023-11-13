@@ -36,18 +36,17 @@ $(document).ready(function(){
 });
 
 // 직접 입력
-$(function(){
-$("#selboxDirect").hide();
-$("#selbox").change(function() {
-    if($("#selbox").val() == "direct") {
+$(function() {
+    $(".selboxDirect").hide();
+    
+    $(".category").change(function() {
+        var parentCategoryBox = $(this).closest('.category-box');
 
-        $("#selboxDirect").show();
-        $("#selbox").hide();
-
-    }  else {
-
-        $("#selboxDirect").hide();
-
-    }
-  }) 
+        if ($(this).val() == "direct") {
+            $(".selboxDirect", parentCategoryBox).show();
+            $(this).hide();
+        } else {
+            $(".selboxDirect", parentCategoryBox).hide();
+        }
+    });
 });

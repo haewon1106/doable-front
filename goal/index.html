@@ -13,7 +13,7 @@
 
 <body>
     <section class="add-list-container">
-        <button class="add-list-btn btn-style">목표 추가<i class='bx bx-chevron-down'></i></button>
+        <button class="add-list-btn btn-style">하루 목표<i class='bx bx-chevron-down'></i></button>
         <div class="add-list">
             <div class="category-container" id="category-container">
                 <p class="main-text">카테고리</p>
@@ -26,114 +26,68 @@
                         <option value="exercise">운동</option>
                         <option value="direct">직접입력</option>
                     </select>
-                            
-                <input type="text" id="selboxDirect" name="selboxDirect"/>
-                    
+                            <input type="text" id="selboxDirect" name="selboxDirect" class="selboxDirect"/>
                 </div>
             </div>
             <div class="goal-name-box">
                 <p class="main-text">목표 이름</p>
                 <input type="text" placeholder="목표 이름을 작성하세요" class="goal-name">
             </div>
-            <div class="amount-container">
-                <div class="amount-setting">
-                    <p class="main-text">양 설정</p>
-                    <select name="amount" class="amount">
-                        <option value="plus">
-                            <div class="category-color"></div>더하기
-                        </option>
-                        <option value="minus">
-                            <div class="category-color"></div>덜하기
-                        </option>
-                        <option value="else">
-                            <div class="category-color"></div>변화없음
-                        </option>
-                    </select>
-                </div>
-                <div class="initial-amount">
-                    <p class="main-text">처음 시작한 양</p>
-                    <div class="initial-box">
-                        <input type="text" class="input-amount">
-                        <div class="up-down-btn">
-                            <button class="up"><i class='bx bx-chevron-up'></i></button>
-                            <button class="down"><i class='bx bx-chevron-down'></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="goal-name-box unit-box">
-                <p class="main-text">단위</p>
-                <input type="text" placeholder="단위를 설정하세요" class="goal-name unit">
-            </div>
-            <div class="more_less_container">
-                <div class="checkbox_container">
-                    <p class="more-less-text">점점 늘리기/줄이기</p>
-                    <input type="checkbox" name="check" id="check1" class="custom-checkbox">
-                    <label for="check1"></label>
-                </div>
-                <div class="more_less_amount">
-                    <div class="main-text">양</div>
-                    <input type="text" class="input-amount" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-                </div>
-            </div>
-            <div class="day-container">
-                <div class="start-container">
-                    <p class="main-text">시작 날짜</p>
-                    <input type="text" placeholder="ex) 0000 / 00 / 00" class="goal-name unit" id="start-date">
-                </div>
-                <div class="end-container">
-                    <p class="main-text">종료 날짜</p>
-                    <input type="text" placeholder="ex) 0000 / 00 / 00" class="goal-name unit" id="end-date">
-                </div>
-            </div>
-
             <button class="create-btn inner-btn-style">목표 추가</button>
         </div>
     </section>
     <section class="delete-list-container">
-        <button class="delete-list-btn btn-style">목표 삭제<i class='bx bx-chevron-down'></i></button>
+        <button class="delete-list-btn btn-style">매일 목표<i class='bx bx-chevron-down'></i></button>
         <div class="delete-list">
-            <div class="goal-box">
-                <div class="delete-goal-container">
-                    <div class="keyword-icon">
-                        <div class="keyword-color"></div>
-                        <p class="keyword-name">운동</p>
-                    </div>
-                    <div class="goal">평소보다 300보씩 더 걷기</div>
+            <div class="category-container" id="category-container">
+                <p class="main-text">카테고리</p>
+                <div class="category-box">
+                    <div class="category-color"></div>
+                    <select id="selbox" class="category" name="selbox">
+                        <option value="">선택</option>
+                        <option value="study">공부</option>
+                        <option value="diet">다이어트</option>
+                        <option value="exercise">운동</option>
+                        <option value="direct">직접입력</option>
+                    </select>
+                            <input type="text" id="selboxDirect" name="selboxDirect" class="selboxDirect"/>
                 </div>
-                <input type="checkbox" name="check" id="check2" class="custom-checkbox">
-                <label for="check2"></label>
             </div>
-            <div class="goal-box">
-                <div class="delete-goal-container">
-                    <div class="keyword-icon">
-                        <div class="keyword-color"></div>
-                        <p class="keyword-name">운동</p>
-                    </div>
-                    <div class="goal">평소보다 300보씩 더 걷기</div>
+
+            <div class="goal-name-box">
+                <p class="main-text">목표 이름</p>
+                <input type="text" placeholder="목표 이름을 작성하세요" class="goal-name">
+            </div>
+            <div class="day-container">
+                <div class="start-container">
+                    <p class="main-text">시작 날짜</p>
+                    <input type="date" name="start-date" id="start-date">
                 </div>
-                <input type="checkbox" name="check" id="check3" class="custom-checkbox">
-                <label for="check3"></label>
+                <div class="end-container">
+                    <p class="main-text">종료 날짜</p>
+                    <input type="date" name="end-date" id="end-date">
+                </div>
             </div>
-            <button class="delete-btn inner-btn-style">목표 삭제</button>
+            
+            <button class="delete-btn inner-btn-style">목표 추가</button>
         </div>
     </section>
     <section class="correction-list-container">
-        <button class="correction-list-btn btn-style">목표 수정<i class='bx bx-chevron-down'></i></button>
+        <button class="correction-list-btn btn-style">증가하는 목표<i class='bx bx-chevron-down'></i></button>
         <div class="correction-list">
-            <div class="category-container">
+            <div class="category-container" id="category-container">
                 <p class="main-text">카테고리</p>
-                <select name="category" class="category">
-                    <option value="study">
-                        <div class="category-color"></div>공부
-                    </option>
-                    <option value="diet">
-                        <div class="category-color"></div>다이어트
-                    </option>
-                    <option value="exercise">
-                        <div class="category-color"></div>운동
-                    </option>
-                </select>
+                <div class="category-box">
+                    <div class="category-color"></div>
+                    <select id="selbox" class="category" name="selbox">
+                        <option value="">선택</option>
+                        <option value="study">공부</option>
+                        <option value="diet">다이어트</option>
+                        <option value="exercise">운동</option>
+                        <option value="direct">직접입력</option>
+                    </select>
+                            <input type="text" id="selboxDirect" name="selboxDirect" class="selboxDirect"/>
+                </div>
             </div>
             <div class="goal-name-box">
                 <p class="main-text">목표 이름</p>
@@ -187,9 +141,10 @@
                 </div>
                 <div class="end-container">
                     <p class="main-text">종료 날짜</p>
+                    <input type="date" name="end-date" id="end-date">
                 </div>
             </div>
-            <button class="correction-btn inner-btn-style">목표 수정</button>
+            <button class="correction-btn inner-btn-style">목표 추가</button>
         </div>
     </section>
     <div class="menu">
