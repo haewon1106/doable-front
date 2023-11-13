@@ -60,7 +60,7 @@ async function showUserInfo() {
 
 async function showUsersTodos() {
     todosDiv.innerHTML = '';
-    await axios.get(`${BASE_URL}/todos/${USER_NO}`)
+    await axios.get(`${BASE_URL}/users/${USER_NO}/todos`)
         .then(response => {
             const dataList = response.data;
             for (let data of dataList) {
@@ -73,7 +73,7 @@ async function showUsersTodos() {
 
                 const keywordColor = document.createElement('div');
                 keywordColor.className = 'keyword-color';
-                keywordColor.style.backgroundColor = data.category.color_code;
+                keywordColor.style.backgroundColor = data.category.category_color;
 
                 const keywordName = document.createElement('p');
                 keywordName.className = 'keyword-name';
