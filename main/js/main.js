@@ -106,7 +106,7 @@ async function showUsersCategories() {
     categoriesDiv.innerHTML = '';
     categoriesDiv.appendChild(dDay);
 
-    await axios.get(`${BASE_URL}/category/user/${USER_NO}`)
+    await axios.get(`${BASE_URL}/users/${USER_NO}/categories`)
         .then(response => {
             const dataList = response.data;
             for (let data of dataList) {
@@ -119,7 +119,7 @@ async function showUsersCategories() {
 
                 const keywordColor = document.createElement('div');
                 keywordColor.className = 'keyword-color';
-                keywordColor.style.backgroundColor = data.color_code;
+                keywordColor.style.backgroundColor = data.category_color;
 
                 const keywordName = document.createElement('p');
                 keywordName.className = 'keyword-name';
