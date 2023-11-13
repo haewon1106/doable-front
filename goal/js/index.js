@@ -34,3 +34,20 @@ $(document).ready(function(){
         $(".correction-list").show();
     });
 });
+
+// 직접 입력
+$(function(){
+$("#selboxDirect").hide();
+$("#selbox").change(function() {
+    if($("#selbox").val() == "direct") {
+
+        $("#selboxDirect").show();
+        $("#selbox").hide();
+
+    }  else {
+
+        $("#selboxDirect").hide();
+
+    }
+  }) 
+});

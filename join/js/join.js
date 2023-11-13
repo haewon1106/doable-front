@@ -7,6 +7,7 @@ const mailDomainSelbox = document.getElementById('selbox');
 const mailDomainInput = document.getElementById('selboxDirect');
 const joinButton = document.getElementsByClassName('join-btn')[0];
 
+
 let checkPW = () => {
     let pw = pwInput.value;
     let check = pwCheckInput.value;
@@ -44,3 +45,20 @@ joinButton.onclick = () => {
         console.error('Registration failed:', error);
     });
 };
+
+// 직접 입력
+$(function(){
+    $("#selboxDirect").hide();
+    $("#selbox").change(function() {
+        if($("#selbox").val() == "direct") {
+    
+            $("#selboxDirect").show();
+            $("#selbox").hide();
+    
+        }  else {
+    
+            $("#selboxDirect").hide();
+    
+        }
+        }) 
+    });
