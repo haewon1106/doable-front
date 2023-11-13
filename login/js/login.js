@@ -7,15 +7,15 @@ loginButton.onclick = () => {
     let password = pwInput.value;
 
     let loginRequest = {
-        userid: userid,
-        password: password
+        user_id: userid,
+        user_pw: password
     };
 
-    axios.post(`${BASE_URL}/auth/login`, loginRequest)
+    axios.post(`${BASE_URL}/login`, loginRequest)
     .then(response => {
         console.log(response);
-        const userData = response.data.user;
-        setCookie('login', userData.user_no);
+        const userNo = response.data.result;
+        setCookie('login', userNo);
         console.log('Registration successful:', response.data);
         window.open('../main', '_top');
 
