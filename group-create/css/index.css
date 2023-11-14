@@ -94,7 +94,7 @@ select{
 .amount-setting{
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 100%;
     row-gap: 1vh;
 }
 .amount{
