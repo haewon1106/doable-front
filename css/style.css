@@ -69,13 +69,13 @@ li{
 }
 .bar-icon{
     font-size: 23px;
-    color: var(--gray-400);
+    color: var(--gray-300);
 }
 .bar-name{
     font-size: 14px;
     margin-top: 5px;
     margin-bottom: 0;
-    color: var(--gray-400);
+    color: var(--gray-300);
 }
 input,
 select{
