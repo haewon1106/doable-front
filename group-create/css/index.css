@@ -36,7 +36,7 @@ textarea:focus::placeholder{
 }
 .group-description{
     height: 10vh;
-    padding: 1.5vh 0 0 1.5vh;
+    padding: 1.5vh;
     resize: none;
 }
 input::placeholder,
@@ -52,7 +52,7 @@ select{
     border-radius: 5px;
     outline: none;
     height: 5vh;
-    padding-left: 1.5vh;
+    padding: 1.5vh;
 }
 .select-search-container{
     display: flex;    
@@ -83,7 +83,7 @@ select{
     border-radius: 0;
     border-bottom: var(--gray-400) 1px solid;
     height: 5vh;
-    padding-left: 0.5vh;
+    padding: 0.5vh;
     width: 100%;
     font-size: 1rem;
 }
