@@ -147,7 +147,7 @@ p{
 .day-container,
 .day-container1{
     display: flex;
-    column-gap: 20px;
+    column-gap: 10%;
     align-items: center;
 }
 .day,
