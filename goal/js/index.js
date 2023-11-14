@@ -50,3 +50,14 @@ $(function() {
         }
     });
 });
+
+$(function(){
+    $(".modalWrap").hide();
+
+    $(".category-color").click(function(){
+        $(".modalWrap").show();
+    });
+    $(".modalWrap").click(function(){
+        $(".modalWrap").hide();
+    });
+});
