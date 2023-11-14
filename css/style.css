@@ -16,6 +16,11 @@
     --gray-900: #212121;
     --white: #FFFFFF;
     --black: #121212;
+    --category1: #FF9C5A;
+    --category2: #FFED4F;
+    --category3: #66E0C6;
+    --category4: #78AEFF;
+    --category5: #BB78FF;
 }
 
 * {
