@@ -1,0 +1,26 @@
+html,
+body{
+    width: 100%;
+    height: 100%;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 8%;
+    height: 100vh;
+    justify-content: space-between;
+}
+.create-group-container {
+    display: flex;
+    column-gap: 5vw;
+    margin: 5.5vw 0 2vw 0;
+}
+.create-text, 
+.bx-chevron-left {
+    font-size: 1.2rem;
+    color: var(--black);
+}
+
+.bx-chevron-left {
+    cursor: pointer;
+}
