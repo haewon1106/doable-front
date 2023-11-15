@@ -56,3 +56,19 @@ function muCenter(target) {
     console.log('boxHarf:', boxHarf);
     console.log('selectTargetPos:', selectTargetPos);
 }
+
+$(function(){
+    $(".search-window").hide();
+
+    $(".search").on("input", function() {
+        if ($(this).val() != "") {
+            $(".search-window").show();
+            $(".plus-icon").hide();
+            $('.input-box').addClass("active");
+        } else {
+            $(".search-window").hide();
+            $('.search').removeClass("active");
+            $(".plus-icon").show();
+        }
+    });
+});
