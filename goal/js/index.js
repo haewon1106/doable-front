@@ -54,10 +54,31 @@ $(function() {
 $(function(){
     $(".modalWrap").hide();
 
-    $(".category-color").click(function(){
+    $(".category-color").click(function(event){
+        event.stopPropagation();
         $(".modalWrap").show();
     });
-    $(".modalWrap").click(function(){
+
+    $(".modalWrap").click(function(event){
+        event.stopPropagation();
+    });
+
+    $(document).click(function(){
         $(".modalWrap").hide();
     });
 });
+
+$(document).ready(function(){
+    $(".color").click(function(){
+        var color = $(this).css("background-color");
+
+        var currentColor = $(".category-color").css("background-color");
+
+        if (color === currentColor) {
+            $(".category-color").css("background-color", "");
+        } else {
+            $(".category-color").css("background-color", color);
+        }
+    });
+});
+
