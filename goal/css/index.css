@@ -303,11 +303,12 @@ input{
 .modalWrap {
     position: absolute;
     z-index: 1;
-    padding-top: 43%;
+    margin-top: 45%;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    margin-left: 3%;
+    /* width: 100%;
+    height: 100%; */
 }
 .modalBody {
     display: flex;
@@ -354,10 +355,10 @@ input{
     background-color: var(--category5);
 }
 .every-modal{
-    margin-top: 18%;
+    margin-top: 64%;
 }
 .add-modal{
-    margin-top: 36%;
+    margin-top: 83%;
 }
 
 .correction-modal{
