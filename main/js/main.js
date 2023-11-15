@@ -25,9 +25,9 @@ const dayList = document.getElementsByClassName('day');
 const todosDiv = document.getElementsByClassName('goals-btn')[0];
 const categoriesDiv = document.getElementsByClassName('goals-container')[0];
 
-showUserInfo();
+// showUserInfo();
 setDate();
-showUsersCategories();
+// showUsersCategories();
 
 function setDate() {
     const now = new Date();
@@ -185,3 +185,4 @@ async function showUsersCategories() {
 
     showUsersTodos();
 }
+
