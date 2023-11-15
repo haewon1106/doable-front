@@ -1,3 +1,23 @@
+// $(function(){
+//     $(".modalContent").hide();
+
+//     $(".dot-icon").click(function(event){
+//         var goalBox = $(this).closest('.goal-box');
+
+//         goalBox.find(".modalContent").show();
+
+//         event.stopPropagation();
+//     });
+
+//     $(document).click(function(){
+//         $(".modalContent").hide();
+//     });
+
+//     $(".modalContent").click(function(event){
+//         event.stopPropagation();
+//     });
+// });
+
 const welcomeComent = document.getElementsByClassName('welcome-comment')[0];
 const remainingGoals = document.getElementsByClassName('remaining-goals')[0];
 const dateDiv = document.getElementsByClassName('year')[0];
@@ -68,6 +88,9 @@ async function showUsersTodos() {
                 const goalBox = document.createElement('div');
                 goalBox.className = 'goal-box';
 
+                const keywordBox = document.createElement('div');
+                keywordBox.className = 'keyword-box';
+
                 const keywordIcon = document.createElement('div');
                 keywordIcon.className = 'keyword-icon';
 
@@ -79,14 +102,37 @@ async function showUsersTodos() {
                 keywordName.className = 'keyword-name';
                 keywordName.innerHTML = data.category.category_name;
 
+                const dotIcon = document.createElement('i');
+                dotIcon.classList.add('bx', 'bx-dots-vertical-rounded', 'dot-icon');
+
                 const goal = document.createElement('goal');
                 goal.className = 'goal';
                 goal.innerHTML = data.todo_name;
 
+                const modalContent = document.createElement('div');
+                modalContent.className = 'modalContent';
+                
+                const correction= document.createElement('div');
+                correction.className = 'correction';
+                correction.innerHTML = '수정';
+
+                const deleteDiv = document.createElement('div');
+                deleteDiv.className = 'delete';
+                deleteDiv.innerHTML = '삭제';
+
+
+
                 keywordIcon.appendChild(keywordColor);
                 keywordIcon.appendChild(keywordName);
-                goalBox.appendChild(keywordIcon);
+                keywordBox.appendChild(keywordIcon);
+                keywordBox.appendChild(dotIcon);
+                modalContent.appendChild(correction);
+                modalContent.appendChild(deleteDiv);
+                goalBox.appendChild(keywordBox);
                 goalBox.appendChild(goal);
+                goalBox.appendChild(modalContent);
+
+                console.log(goalBox);
 
                 todosDiv.appendChild(goalBox);
             }
@@ -140,26 +186,3 @@ async function showUsersCategories() {
     showUsersTodos();
 }
 
-$(function(){
-    $(".modalContent").hide();
-
-    $(".dot-icon").click(function(event){
-        var goalBox = $(this).closest('.goal-box');
-
-        goalBox.find(".modalContent").show();
-
-        event.stopPropagation();
-    });
-
-    $(document).click(function(){
-        $(".modalContent").hide();
-    });
-
-    $(".modalContent").click(function(event){
-        event.stopPropagation();
-    });
-});
-
-$('.correction').click(function(){
-    location.href = '../correction-goal/';
-});
