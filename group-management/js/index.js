@@ -42,6 +42,10 @@ $(function () {
         clearTimeout(clickTimer);
     }
 
+    $('.no').click(function(){
+        $(".modal").hide();
+    });
+
     $(document).click(function () {
         $(".modal").hide();
     });
