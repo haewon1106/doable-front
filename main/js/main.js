@@ -139,3 +139,23 @@ async function showUsersCategories() {
 
     showUsersTodos();
 }
+
+$(function(){
+    $(".modalContent").hide();
+
+    $(".dot-icon").click(function(event){
+        var goalBox = $(this).closest('.goal-box');
+
+        goalBox.find(".modalContent").show();
+
+        event.stopPropagation();
+    });
+
+    $(document).click(function(){
+        $(".modalContent").hide();
+    });
+
+    $(".modalContent").click(function(event){
+        event.stopPropagation();
+    });
+});
