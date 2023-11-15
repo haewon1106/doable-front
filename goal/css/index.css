@@ -87,7 +87,7 @@ input{
     width: 90%;
 }
 .category-color{
-    width: 10vw;
+    width: 12vw;
     height: 10vw;
     background-color: #FFE0DE;
     border-radius: 3px;
@@ -233,7 +233,7 @@ input{
 }
 .more_less_container{
     display: flex;
-    column-gap: 5%;
+    column-gap: 6%;
 }
 .checkbox_container{
     display: flex;
@@ -282,7 +282,7 @@ input{
     color: var(--black);
 }
 .modalWrap {
-    position: fixed;
+    position: absolute;
     z-index: 1;
     padding-top: 43%;
     left: 0;
@@ -335,8 +335,8 @@ input{
     background-color: var(--category5);
 }
 .every-modal{
-    margin-top: 17%;
+    margin-top: 18%;
 }
 .add-modal{
-    margin-top: 34%;
+    margin-top: 36%;
 }
