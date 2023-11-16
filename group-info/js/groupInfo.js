@@ -25,7 +25,10 @@ async function showGroupInfo() {
     groupNameDiv.innerHTML = group.group_name;
     groupDescDiv.innerHTML = group.group_desc;
     groupTodoDiv.innerHTML = group.group_todo;
-    groupMemberCountDiv.innerHTML = 1;
+
+    const count = await getGroupMemberCount(group.group_no);
+    console.log(count);
+    groupMemberCountDiv.innerHTML = count + "";
 
 
     const isMember = await isGroupMember(group.group_no);
@@ -50,6 +53,19 @@ async function isGroupMember(groupNo) {
         });
 
     return isMember;
+}
+
+async function getGroupMemberCount(groupNo) {
+    const count = await axios.get(`${BASE_URL}/groups/${groupNo}/users`)
+        .then(response => {
+            return response.data.length;
+        })
+        .catch(error => {
+            console.error(error);
+            return [];
+        })
+
+    return count;
 }
 
 // 그룹 가입하기
