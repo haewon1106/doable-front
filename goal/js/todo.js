@@ -121,3 +121,37 @@ function getSelectedCategory(id){
     console.log(categorySelBox[id].value);
     return categorySelBox[id].value;
 }
+
+// 매일 투두 만들기
+const dailyButton = document.getElementById('daily-button');
+const dailyField = document.getElementById('daily-field');
+const dailyStartDate = document.getElementsByClassName('start-date')[0];
+const dailyEndDate = document.getElementsByClassName('end-date')[0];
+
+dailyButton.onclick = () => {
+    const name = dailyField.value.trim();
+    if (name.length === 0) return;
+
+    const categoryNo = getSelectedCategory(0);
+
+    const startDate = dailyStartDate.value;
+    const endDate = dailyEndDate.value;
+
+    const request = {
+        user_no: USER_NO,
+        category_no: categoryNo,
+        todo_name: name,
+        todo_startdate: startDate,
+        todo_enddate: endDate
+    };
+
+    console.log(request);
+
+    axios.post(`${BASE_URL}/todos/daily`, request)
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+}
