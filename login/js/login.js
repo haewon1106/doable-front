@@ -17,7 +17,7 @@ loginButton.onclick = () => {
         const userNo = response.data.result;
         setCookie('login', userNo);
         console.log('Registration successful:', response.data);
-        window.open('../main', '_top');
+        window.open('../main/', '_top');
 
     })
     .catch(error => {
