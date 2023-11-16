@@ -124,7 +124,7 @@ async function showUsersTodos() {
                         .then(response => {
                             location.reload();
                         })
-                        .catch(error => console.log(error));
+                        .catch(error => location.reload());
                 }
 
 
