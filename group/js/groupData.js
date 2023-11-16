@@ -5,6 +5,10 @@ const bestUserNameDiv = document.getElementsByClassName('best-username')[0];
 const bestAmountDiv = document.getElementsByClassName('best-amount')[0];
 const unitDiv = document.getElementsByClassName('unit')[0];
 const updateButton = document.getElementsByClassName('registration-btn')[0];
+const checkBox = document.getElementById('check');
+const unitBox = document.getElementsByClassName('unit-box')[0];
+
+let selectedGroupNo = 0;
 
 showUsersGroups();
 
@@ -56,6 +60,8 @@ async function showUsersGroups() {
 
 // 선택된 그룹의 투두 보여주기
 async function showGroupsTodo(groupNo) {
+    selectedGroupNo = groupNo;
+
     const group = await axios.get(`${BASE_URL}/groups/${groupNo}`)
         .then(response => {
             return response.data;
@@ -96,4 +102,28 @@ async function getUserName(userNo) {
         })
 
     return name;
+}
+
+// 그룹 목표 업데이트 하기 }
+updateButton.onclick = () => {
+    const value = unitBox.value.trim();
+    if (value.length === 0) return;
+
+    const request = {
+        user_no: USER_NO,
+        amount: value
+    };
+    
+    console.log(request);   
+    axios.patch(
+        `${BASE_URL}/groups/${selectedGroupNo}/todos`, request
+    )
+    .then(response => {
+        console.log(response);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+    location.reload();
 }
