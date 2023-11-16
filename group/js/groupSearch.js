@@ -57,7 +57,10 @@ async function getSearchResult(q) {
         searchResult.appendChild(groupMember);
 
         searchContainer.appendChild(searchResult);
-
+        
+        searchResult.onclick = () => {
+            window.open(`/group-info/?id=${result.group_no}`, '_top');
+        }
     });
 
 }
