@@ -27,6 +27,7 @@ async function showUsersGroups() {
     showGroupsTodo(groups[0].group_no);
 
     for (let group of groups) {
+        console.log(group);
         const groupBox = document.createElement('div');
         groupBox.className = 'group-box';
 
@@ -86,7 +87,7 @@ async function getGroupMemberCount(groupNo) {
         })
         .catch(error => {
             console.error(error);
-            return [];
+            return 0;
         })
 
     return count;
@@ -104,7 +105,7 @@ async function getUserName(userNo) {
     return name;
 }
 
-// 그룹 목표 업데이트 하기 }
+// 그룹 목표 업데이트 하기
 updateButton.onclick = () => {
     const value = unitBox.value.trim();
     if (value.length === 0) return;
@@ -114,6 +115,8 @@ updateButton.onclick = () => {
         amount: value
     };
     
+    console.log(request);
+
     console.log(request);   
     axios.patch(
         `${BASE_URL}/groups/${selectedGroupNo}/todos`, request
