@@ -121,12 +121,30 @@ async function showUsersTodos() {
                 // 투두 삭제
                 deleteDiv.onclick = () => {
                     axios.delete(`${BASE_URL}/todos/${data.todo_no}`)
-                    .then(response => {
-                        location.reload();
-                    })
-                    .catch(error => console.log(error));
+                        .then(response => {
+                            location.reload();
+                        })
+                        .catch(error => console.log(error));
                 }
 
+
+                // 투두 완료
+                goal.onclick = () => {
+                    modalContent.style.display = 'none';
+                    axios.patch(`${BASE_URL}/todos/${data.todo_no}/complete`)
+                        .then(response => {
+                            location.reload();
+                        })
+                        .catch(error => console.log(error));
+                }
+
+                // 완료된 투두 스타일
+                console.log(data.todo_completed === 1);
+                if (data.todo_completed === 1) {
+                    goalBox.style.background = 'lightgray'
+                    dotIcon.style.display = 'none';
+                    goal.onclick = null;
+                }
             }
         })
         .catch(err => {
@@ -151,7 +169,7 @@ async function showUsersCategories() {
 
             const keywordContainer = document.createElement('div');
             keywordContainer.className = 'keyword-container';
-            
+
             for (let data of dataList) {
                 const keyword = document.createElement('div');
                 keyword.className = 'keyword';
