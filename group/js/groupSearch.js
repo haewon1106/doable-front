@@ -63,16 +63,3 @@ async function getSearchResult(q) {
     };
 
 }
-
-async function getGroupMemberCount(groupNo) {
-    const count = await axios.get(`${BASE_URL}/groups/${groupNo}/users`)
-        .then(response => {
-            return response.data.length;
-        })
-        .catch(error => {
-            console.error(error);
-            return [];
-        })
-
-    return count;
-}

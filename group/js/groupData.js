@@ -33,7 +33,8 @@ async function showUsersGroups() {
 
         const num = document.createElement('p');
         num.className = 'num';
-        num.innerHTML = 1;
+        const count = await getGroupMemberCount(group.group_no);
+        num.innerHTML = count + "";
 
         const userIcon = document.createElement('i');
         userIcon.classList.add('bx');
@@ -47,7 +48,6 @@ async function showUsersGroups() {
 
         groupBox.onclick = ( ) => {
             showGroupsTodo(group.group_no);
-            console.log('ckick')
         }
     }
 }
@@ -64,7 +64,19 @@ async function showGroupsTodo(groupNo) {
 
     todoNameDiv.innerHTML = group.group_todo;
     unitDiv.innerHTML = group.group_unit;
-    console.log(group);
     bestUserNameDiv.innerHTML = group.bestuser_no + '님,';
     bestAmountDiv.innerHTML = group.group_beatamount + group.group_unit;
+}
+
+async function getGroupMemberCount(groupNo) {
+    const count = await axios.get(`${BASE_URL}/groups/${groupNo}/users`)
+        .then(response => {
+            return response.data.length;
+        })
+        .catch(error => {
+            console.error(error);
+            return [];
+        })
+
+    return count;
 }
