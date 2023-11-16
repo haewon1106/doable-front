@@ -20,10 +20,8 @@ async function getSearchResult(q) {
             return null;
         });
 
-
-
     searchContainer.innerHTML = '';
-    results.forEach(result => {
+    for (let result of results) {
         const searchResult = document.createElement('div');
         searchResult.className = 'search-result';
 
@@ -40,14 +38,15 @@ async function getSearchResult(q) {
 
         resultGroupGoalContainer.appendChild(resultGroupName);
         resultGroupGoalContainer.appendChild(resultGroupGoal);
-        searchResult.appendChild(resultGroupGoal);
+        searchResult.appendChild(resultGroupGoalContainer);
 
         const groupMember = document.createElement('div');
         groupMember.className = 'group-member';
 
         const num = document.createElement('p');
         num.className = 'num';
-        num.innerHTML = '0';
+        const count = await getGroupMemberCount(result.group_no);
+        num.innerHTML = count + "";
 
         const userIcon = document.createElement('i');
         userIcon.classList.add('bx', 'bx-user');
@@ -57,10 +56,10 @@ async function getSearchResult(q) {
         searchResult.appendChild(groupMember);
 
         searchContainer.appendChild(searchResult);
-        
+
         searchResult.onclick = () => {
             window.open(`/group-info/?id=${result.group_no}`, '_top');
         }
-    });
+    };
 
 }
