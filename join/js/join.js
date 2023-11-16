@@ -25,8 +25,10 @@ joinButton.onclick = () => {
     let name = nameInput.value;
     let userid = idInput.value;
     let password = pwInput.value;
-    let email = mailInput.value + '@' + mailDomainSelbox.value + 'com';
-
+    let email = mailInput.value + '@';
+    if (mailDomainSelbox.value === 'direct') {
+        email += mailDomainInput.value;
+    } else email +=  mailDomainSelbox.value + 'com';
     const userData = {
         user_name: name,
         user_id: userid,

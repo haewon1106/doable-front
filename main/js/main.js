@@ -1,23 +1,3 @@
-// $(function(){
-//     $(".modalContent").hide();
-
-//     $(".dot-icon").click(function(event){
-//         var goalBox = $(this).closest('.goal-box');
-
-//         goalBox.find(".modalContent").show();
-
-//         event.stopPropagation();
-//     });
-
-//     $(document).click(function(){
-//         $(".modalContent").hide();
-//     });
-
-//     $(".modalContent").click(function(event){
-//         event.stopPropagation();
-//     });
-// });
-
 const welcomeComent = document.getElementsByClassName('welcome-comment')[0];
 const remainingGoals = document.getElementsByClassName('remaining-goals')[0];
 const dateDiv = document.getElementsByClassName('year')[0];
@@ -25,9 +5,9 @@ const dayList = document.getElementsByClassName('day');
 const todosDiv = document.getElementsByClassName('goals-btn')[0];
 const categoriesDiv = document.getElementsByClassName('goals-container')[0];
 
-// showUserInfo();
+showUserInfo();
 setDate();
-// showUsersCategories();
+showUsersCategories();
 
 function setDate() {
     const now = new Date();
@@ -120,8 +100,6 @@ async function showUsersTodos() {
                 deleteDiv.className = 'delete';
                 deleteDiv.innerHTML = '삭제';
 
-
-
                 keywordIcon.appendChild(keywordColor);
                 keywordIcon.appendChild(keywordName);
                 keywordBox.appendChild(keywordIcon);
@@ -131,10 +109,15 @@ async function showUsersTodos() {
                 goalBox.appendChild(keywordBox);
                 goalBox.appendChild(goal);
                 goalBox.appendChild(modalContent);
-
-                console.log(goalBox);
-
                 todosDiv.appendChild(goalBox);
+
+                modalContent.style.display = 'none';
+                dotIcon.onclick = () => {
+                    [...document.getElementsByClassName('modalContent')].forEach(e => {
+                        e.style.display = 'none';
+                    })
+                    modalContent.style.display = 'flex';
+                }
             }
         })
         .catch(err => {

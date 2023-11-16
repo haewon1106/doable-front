@@ -45,6 +45,10 @@ async function showUsersGroups() {
         groupBox.appendChild(groupMember);
         groupContainer.appendChild(groupBox);
 
+        groupBox.onclick = ( ) => {
+            showGroupsTodo(group.group_no);
+            console.log('ckick')
+        }
     }
 }
 
@@ -63,6 +67,4 @@ async function showGroupsTodo(groupNo) {
     console.log(group);
     bestUserNameDiv.innerHTML = group.bestuser_no + '님,';
     bestAmountDiv.innerHTML = group.group_beatamount + group.group_unit;
-
-
 }
