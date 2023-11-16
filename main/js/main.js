@@ -52,7 +52,6 @@ async function showUserInfo() {
             welcomeComent.innerHTML = `안녕하세요, ${user.user_name}님`;
             remainingGoals.innerHTML = `오늘의 목표가 0개 남았습니다`; // TODO: 칼럼 추가해서 남은 투두 개수 계산하기
 
-            welcomeComent
         }).catch((err) => {
             console.error(err);
         });
@@ -64,7 +63,6 @@ async function showUsersTodos() {
         .then(response => {
             const dataList = response.data;
             for (let data of dataList) {
-                console.log(data);
                 const goalBox = document.createElement('div');
                 goalBox.className = 'goal-box';
 
@@ -112,11 +110,42 @@ async function showUsersTodos() {
                 todosDiv.appendChild(goalBox);
 
                 modalContent.style.display = 'none';
+
                 dotIcon.onclick = () => {
                     [...document.getElementsByClassName('modalContent')].forEach(e => {
                         e.style.display = 'none';
                     })
                     modalContent.style.display = 'flex';
+                }
+
+                // 투두 삭제
+                deleteDiv.onclick = () => {
+                    axios.delete(`${BASE_URL}/todos/${data.todo_no}`)
+                        .then(response => {
+                            location.reload();
+                        })
+                        .catch(error => location.reload());
+                }
+
+
+                // 투두 완료
+                goal.onclick = () => {
+                    modalContent.style.display = 'none';
+                    axios.patch(`${BASE_URL}/todos/${data.todo_no}/complete`)
+                        .then(response => {
+                            location.reload();
+                        })
+                        .catch(error => console.log(error));
+                }
+
+                // 완료된 투두 스타일
+                console.log(data.todo_completed === 1);
+                if (data.todo_completed === 1) {
+                    goalBox.style.background = '#E9E9E9'
+                    dotIcon.style.display = 'none';
+                    keywordName.style.color = 'white';
+                    goal.style.color = 'white';
+                    goal.onclick = null;
                 }
             }
         })
@@ -142,10 +171,8 @@ async function showUsersCategories() {
 
             const keywordContainer = document.createElement('div');
             keywordContainer.className = 'keyword-container';
-            
-            for (let data of dataList) {
-                console.log(data);
 
+            for (let data of dataList) {
                 const keyword = document.createElement('div');
                 keyword.className = 'keyword';
 
@@ -171,4 +198,3 @@ async function showUsersCategories() {
 
     showUsersTodos();
 }
-

@@ -70,5 +70,14 @@ async function getGroupMemberCount(groupNo) {
 
 // 그룹 가입하기
 joinButton.onclick = () => {
-    
+    const request = {
+        user_no: USER_NO,
+        group_no: ID
+    };
+
+    axios.post(`${BASE_URL}/groups/${ID}/users/${USER_NO}`, request)
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
+
+    window.open('/group/', '_top');
 }
