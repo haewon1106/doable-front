@@ -1,15 +1,3 @@
-// const goalNameField = document.getElementsByClassName('goal-name')[0];
-// const amountSelect = document.getElementsByClassName('amount')[0];
-// const amountField = document.getElementsByClassName('input-amount')[0];
-// const amountUpButton = document.getElementsByClassName('up')[0];
-// const amountDownButton = document.getElementsByClassName('down')[0];
-// const optionCheck = document.getElementById('check1');
-// const increaseAmountField = document.getElementById('increase-amount');
-// const startDateField = document.getElementById('start-date');
-// const endDateField = document.getElementById('end-date');
-// const unitField = document.getElementsByClassName('unit')[0];
-
-
 // 옵션 동적으로 추가하기
 const categorySelBox = [...document.getElementsByClassName('category')];
 const categoryColors = [...document.getElementsByClassName('category-color')];
@@ -132,7 +120,7 @@ dailyButton.onclick = () => {
     const name = dailyField.value.trim();
     if (name.length === 0) return;
 
-    const categoryNo = getSelectedCategory(0);
+    const categoryNo = getSelectedCategory(1);
 
     const startDate = dailyStartDate.value;
     const endDate = dailyEndDate.value;
@@ -155,3 +143,66 @@ dailyButton.onclick = () => {
             console.error(error);
         })
 }
+
+// 증가하는 투두 만들기
+const iTodoNameField = document.getElementById('i-todo-name');
+const amountSelect = document.getElementsByClassName('amount')[0];
+const amountField = document.getElementsByClassName('input-amount')[0];
+const amountUpButton = document.getElementsByClassName('up')[0];
+const amountDownButton = document.getElementsByClassName('down')[0];
+const optionCheck = document.getElementById('check1');
+const increaseAmountField = document.getElementById('increase-amount');
+const iStartDateField = document.getElementsByClassName('i-start-date')[0];
+const iEndDateField = document.getElementsByClassName('i-end-date')[0];
+const unitField = document.getElementsByClassName('unit')[0];
+const doableButton = document.getElementById('doable-button');
+
+doableButton.onclick = () => {
+    const name = iTodoNameField.value;
+    let option = 0;
+    if (amountSelect.value === '줄이기') option = 1; 
+    const startvalue = amountField.value;
+    const unit = unitField.value;
+    const startDate = iStartDateField.value;
+    const endDate = iEndDateField.value;
+    const categoryNo = getSelectedCategory(2);
+    const amount = increaseAmountField.value;
+
+    const request = {
+        user_no: USER_NO,
+        category_no: categoryNo,
+        todo_name: name,
+        todo_startdate: startDate,
+        todo_enddate: endDate,
+        todo_option: option,
+        todo_startvalue: startvalue,
+        todo_amount: amount,
+        todo_unit: unit
+    }
+
+    axios.post(`${BASE_URL}/todos/daily/increase`, request)
+        .then(response => { window.open('/goal/', '_top')})
+        .catch(error => console.log(error));
+
+};
+
+amountUpButton.onclick = () => {
+    if (amountField.value === "") {
+        amountField.value = 0;
+    }
+
+    let amount = parseInt(amountField.value) + 1;
+    amountField.value = amount;
+};
+
+amountDownButton.onclick = () => {
+    if (amountField.value === "") {
+        amountField.value = 0;
+    }
+
+    let amount = parseInt(amountField.value) - 1;
+    if (amount < 0 ) {
+        amount = 0;
+    }
+    amountField.value = amount;
+};
