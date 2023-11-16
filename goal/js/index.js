@@ -67,18 +67,3 @@ $(function(){
         $(".modalWrap").hide();
     });
 });
-
-$(document).ready(function(){
-    $(".color").click(function(){
-        var color = $(this).css("background-color");
-
-        var currentColor = $(".category-color").css("background-color");
-
-        if (color === currentColor) {
-            $(".category-color").css("background-color", "");
-        } else {
-            $(".category-color").css("background-color", color);
-        }
-    });
-});
-
