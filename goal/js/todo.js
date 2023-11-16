@@ -91,3 +91,33 @@ function createPost(color, name) {
             console.error(error);
         })
 }
+
+
+// 하루 투두 만들기
+const onedayTodoButton = document.getElementById('oneday-button');
+const onedayField = document.getElementById('oneday-field');
+
+onedayTodoButton.onclick = () => {
+    const name = onedayField.value.trim();
+    if (name.length === 0) return;
+    const categoryNo = getSelectedCategory(0);
+    const request = {
+        user_no: USER_NO,
+        category_no: categoryNo,
+        todo_name: name
+    }
+
+    console.log(request);
+    axios.post(`${BASE_URL}/todos`, request)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+} 
+
+function getSelectedCategory(id){
+    console.log(categorySelBox[id].value);
+    return categorySelBox[id].value;
+}
