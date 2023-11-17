@@ -74,6 +74,11 @@ async function showGroupsTodo(groupNo) {
 
     todoNameDiv.innerHTML = group.group_todo;
     unitDiv.innerHTML = group.group_unit;
+    if (group.bestuser_no === null) {
+        bestUserNameDiv.innerHTML = '아직 베스트 ';
+        bestAmountDiv.innerHTML = '유저가 존재하지 않습니다.';
+        return;
+    }
     const bestUserName = await getUserName(group.bestuser_no);
     bestUserNameDiv.innerHTML = bestUserName + '님,';
     bestAmountDiv.innerHTML = group.group_bestamount + group.group_unit;
@@ -128,5 +133,5 @@ updateButton.onclick = () => {
         console.error(error);
     });
 
-    location.reload();
+    // location.reload();
 }
