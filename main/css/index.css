@@ -84,18 +84,18 @@ p{
     display: none;
 }
 .keyword-color{
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     background-color: #FFE0DE;
     border-radius: 100%;
 }
 .keyword{
-    border: var(--gray-400) solid 1px;
+    border: var(--gray-300) solid 1px;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    column-gap: 10px;
-    padding: 7px 12px 7px 7px;
+    column-gap: 10px;    
+    padding: 5px 9px 5px 5px;
     background-color: transparent;
     font-size: 13px;
     font-weight: 100;

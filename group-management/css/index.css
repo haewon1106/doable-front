@@ -84,7 +84,6 @@ main {
     border-radius: 5px;
     width: 65vw;
     margin: 0 auto;
-
 }
 
 .close {
@@ -96,9 +95,10 @@ main {
 }
 .delete-question{
     display: flex;
-    padding: 4vh 0;
+    padding: 4vh 3vh;
     text-align: center;
     justify-content: center;
+
 }
 .delete-container{
     display: flex;
