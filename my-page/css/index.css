@@ -44,7 +44,8 @@ p{
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    background-color: var(--gray-400);
+    background-image: url(/img/profile.png);
+    background-size: cover;
 }
 .bx-cog{
     font-size: 1.5rem;
