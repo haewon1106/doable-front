@@ -96,6 +96,12 @@ async function getMyGroups() {
         groupManagementContainer.appendChild(myGroupContainer);
 
         noDiv.onclick = () => window.open('/group-management/', '_top');
+        yesDiv.onclick = () => {
+            axios.delete(`${BASE_URL}/groups/${result.group_no}/users/${USER_NO}`)
+                .then(respones => respones)
+                .catch(error => error);
+            window.open('/group-management/', '_top');
+        }
     };
 
 }
