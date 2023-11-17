@@ -25,6 +25,7 @@ input::placeholder{
     font-size: 1.5rem;
     color: var(--gray-300);
     cursor: pointer;
+    margin-right: 20px;
 }
 .search{
     width: 100%;
