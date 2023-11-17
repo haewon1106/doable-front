@@ -85,7 +85,7 @@ function createPost(color, name) {
     axios.post(`${BASE_URL}/categories`, request)
         .then(response => {
             console.log(response.data);
-            location.reload();
+            window.open('/goal/', '_top');
         })
         .catch(error => {
             console.error(error);
