@@ -75,3 +75,21 @@ p{
     height: 55px;
     align-items: center;
 }
+.name-container{
+    display: flex;
+    align-items: center;
+    column-gap: 1vh;
+}
+.name-correction{
+    width: 20vw;
+    height: fit-content;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-bottom: 1px solid var(--gray-400);
+    padding-bottom: 5px;
+}
+.name-correction::placeholder{
+    font-size: 1.4rem;    
+    font-weight: normal;
+}

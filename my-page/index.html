@@ -16,7 +16,11 @@
             <div class="user">
                 <div class="profile-image"></div>
                 <div class="user-container">
-                    <h1 class="user-name">황혜경</h1>
+                    <div class="name-container">
+                        <h1 class="user-name">황혜경</h1>
+                        <input type="text" id="name-correction" class="name-correction">
+                        <i class="bx bx-pencil pencil-icon"></i>
+                    </div>
                     <p class="user-id">hurlud</p>
                 </div>
             </div>
@@ -26,7 +30,8 @@
             <p class="sub-text">내 정보</p>
             <div class="management-container">
                 <div class="user-info">
-                    <p class="main-text" onclick="location.href='/user-info/'">회원 정보 관리</p>
+                    <!-- <p class="main-text" onclick="location.href='/user-info/'">회원 정보 관리</p> -->
+                    <p class="main-text">회원 정보 관리</p>
                     <i class='bx bx-chevron-right'></i>
                 </div>
                 <div class="my-group" onclick="location.href='/group-management/'">
@@ -67,6 +72,7 @@
             </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../config/config.js"></script>
     <script src="./js/mypage.js"></script>

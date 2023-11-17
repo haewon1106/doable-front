@@ -11,3 +11,19 @@ async function showUserInfo() {
     userNameTag.innerHTML = data.user_name;
     userIdTag.innerHTML = data.user_id;
 }
+
+$(document).ready(function () {
+    $('.name-correction').hide();
+    $('.pencil-icon').click(function () {
+        $('.user-name').hide();
+        $('.name-correction').css('display', 'flex');
+    });
+
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('.name-correction, .pencil-icon').length) {
+            
+            $('.user-name').show();
+            $('.name-correction').hide();
+        }
+    });
+});
