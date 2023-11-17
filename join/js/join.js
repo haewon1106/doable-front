@@ -41,7 +41,7 @@ joinButton.onclick = () => {
     axios.post(`${BASE_URL}/join`, userData)
     .then(response => {
         console.log('Registration successful:', response.data);
-        window.open('/login', '_top');
+        window.open('/login/', '_top');
     })
     .catch(error => {
         console.error('Registration failed:', error);
