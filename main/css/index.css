@@ -50,7 +50,8 @@ p{
 .statistics{
     width: 90%;
     display: flex;
-    justify-content: center;
+    padding: 0 20px;
+    justify-content: flex-start;
     background-color: #FFE0DE;
     margin: 0 auto;
     border-radius: 7px;

@@ -4,6 +4,7 @@ const dateDiv = document.getElementsByClassName('year')[0];
 const dayList = document.getElementsByClassName('day');
 const todosDiv = document.getElementsByClassName('goals-btn')[0];
 const categoriesDiv = document.getElementsByClassName('goals-container')[0];
+const completedLabel = document.getElementsByClassName('text2')[0];
 
 let remainingTodoCount = 0;
 
@@ -48,15 +49,28 @@ function getLastDayOfMonth() {
 }
 
 async function showUserInfo() {
-    await axios.get(`${BASE_URL}/users/${USER_NO}`)
+    const user = await axios.get(`${BASE_URL}/users/${USER_NO}`)
         .then(response => {
-            const user = response.data;
-            welcomeComent.innerHTML = `안녕하세요, ${user.user_name}님`;
-            remainingGoals.innerHTML = `오늘의 목표가 ${remainingTodoCount}개 남았습니다`;
+            return response.data;
 
         }).catch((err) => {
             console.error(err);
         });
+
+    welcomeComent.innerHTML = `안녕하세요, ${user.user_name}님`;
+    remainingGoals.innerHTML = `오늘의 목표가 ${remainingTodoCount}개 남았습니다`;
+    const nowCompleted = await axios.get(`${BASE_URL}/users/${USER_NO}/todos/completed`)
+        .then(response => response.data.length)
+        .catch(error => 0);
+    const count = nowCompleted - parseInt(user.user_last_completed);
+
+    if (count === 0) {
+        completedLabel.innerHTML = `어제와 수행한 목표의 개수가 같아요!`
+    } else if (count < 0) {
+        completedLabel.innerHTML = `어제보다 ${Math.abs(count)}개의 목표를 덜 수행했어요ㅠㅠ`
+    } else {
+        completedLabel.innerHTML = `어제보다 ${count}개의 목표를 더 수행했어요!`
+    }
 }
 
 async function showUsersTodos() {
