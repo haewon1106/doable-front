@@ -111,6 +111,7 @@ onedayTodoButton.onclick = () => {
     axios.post(`${BASE_URL}/todos`, request)
         .then(response => {
             console.log(response);
+            window.open('/main/', '_top');
         })
         .catch(error => {
             console.error(error);
@@ -150,6 +151,7 @@ dailyButton.onclick = () => {
     axios.post(`${BASE_URL}/todos/daily`, request)
         .then(response => {
             console.log(response.data);
+            window.open('/main/', '_top');
         })
         .catch(error => {
             console.error(error);
@@ -193,7 +195,8 @@ doableButton.onclick = () => {
     }
 
     axios.post(`${BASE_URL}/todos/daily/increase`, request)
-        .then(response => { window.open('/goal/', '_top')})
+        .then(response => { 
+            window.open('/main/', '_top')})
         .catch(error => console.log(error));
 
 };
