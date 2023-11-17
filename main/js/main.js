@@ -145,7 +145,6 @@ async function showUsersTodos() {
                 }
 
                 // 완료된 투두 스타일
-                console.log(data.todo_completed === 1);
                 if (data.todo_completed === 1) {
                     dotIcon.style.display = 'none';
                     goalBox.style.opacity = '0.3'
