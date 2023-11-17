@@ -1,8 +1,8 @@
-const myGroupContainer = document.getElementsByClassName('group-management-container')[0];
+const groupManagementContainer = document.getElementsByClassName('group-management-container')[0];
 
-getMyGroups();
+getMyGroups();      
 
-async function getMyGroups(q) {
+async function getMyGroups() {
     const results = await axios.get(
         `${BASE_URL}/users/${USER_NO}/groups`)
         .then(response => {
@@ -14,8 +14,11 @@ async function getMyGroups(q) {
             return null;
         });
 
-    myGroupContainer.innerHTML = '';
+    groupManagementContainer.innerHTML = '';
     for (let result of results) {
+        const myGroupContainer = document.createElement('div');
+        myGroupContainer.className = 'my-group-container';
+
         const myGroup = document.createElement('div');
         myGroup.className = 'my-group';
 
@@ -45,12 +48,54 @@ async function getMyGroups(q) {
         const userIcon = document.createElement('i');
         userIcon.classList.add('bx', 'bx-user');
 
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.id = 'modal';
+
+        const modalContent = document.createElement('div');
+        modalContent.className = 'modal-content';
+
+        const deleteQ = document.createElement('div');
+        deleteQ.innerHTML = `${result.group_name} 그룹을 탈퇴하시겠습니까?`;
+        deleteQ.className = 'delete-question';
+
+        const hr_ = document.createElement('hr');
+        hr_.className = 'row'
+
+        const deleteContainter = document.createElement('div');
+        deleteContainter.className = 'delete-container';
+
+        const yesDiv = document.createElement('div');
+        yesDiv.className = 'yes';
+        yesDiv.innerHTML = '탈퇴';
+
+        const hr2 = document.createElement('hr');
+        hr2.className = 'column';
+
+        const noDiv = document.createElement('div');
+        noDiv.innerHTML = '취소';
+        noDiv.className = 'no';
+
+        deleteContainter.appendChild(yesDiv);
+        deleteContainter.appendChild(hr2);
+        deleteContainter.appendChild(noDiv);
+
+        modalContent.appendChild(deleteQ);
+        modalContent.appendChild(hr_);
+        modalContent.appendChild(deleteContainter);
+        modal.appendChild(modalContent);
+
         groupMember.appendChild(num);
         groupMember.appendChild(userIcon);
         myGroup.appendChild(groupMember);
 
         myGroupContainer.appendChild(myGroup);
+        myGroupContainer.appendChild(modal);
 
+        console.log(myGroupContainer)
+        groupManagementContainer.appendChild(myGroupContainer);
+
+        noDiv.onclick = () => window.open('/group-management/', '_top');
     };
 
 }

@@ -5,6 +5,8 @@ const dayList = document.getElementsByClassName('day');
 const todosDiv = document.getElementsByClassName('goals-btn')[0];
 const categoriesDiv = document.getElementsByClassName('goals-container')[0];
 
+let remainingTodoCount = 0;
+
 showUserInfo();
 setDate();
 showUsersCategories();
@@ -50,7 +52,7 @@ async function showUserInfo() {
         .then(response => {
             const user = response.data;
             welcomeComent.innerHTML = `안녕하세요, ${user.user_name}님`;
-            remainingGoals.innerHTML = `오늘의 목표가 0개 남았습니다`; // TODO: 칼럼 추가해서 남은 투두 개수 계산하기
+            remainingGoals.innerHTML = `오늘의 목표가 ${remainingTodoCount}개 남았습니다`; 
 
         }).catch((err) => {
             console.error(err);
@@ -62,7 +64,11 @@ async function showUsersTodos() {
     await axios.get(`${BASE_URL}/users/${USER_NO}/todos`)
         .then(response => {
             const dataList = response.data;
+
+            remainingTodoCount = dataList.length;
+            
             for (let data of dataList) {
+
                 const goalBox = document.createElement('div');
                 goalBox.className = 'goal-box';
 
@@ -145,8 +151,11 @@ async function showUsersTodos() {
                     goalBox.style.opacity = '0.3'
                     goalBox.style.border = '1px solid var(--gray-300)'
                     goal.onclick = null;
+                    remainingTodoCount--;
                 }
             }
+
+            remainingGoals.innerHTML = `오늘의 목표가 ${remainingTodoCount}개 남았습니다.`;
         })
         .catch(err => {
             console.error(err);

@@ -12,7 +12,6 @@ let selectedGroupNo = 0;
 
 showUsersGroups();
 
-// 유저가 가입한 그룹 보여주기
 async function showUsersGroups() {
     groupContainer.innerHTML = '';
     const groups = await axios.get(`${BASE_URL}/users/${USER_NO}/groups`)
@@ -26,38 +25,35 @@ async function showUsersGroups() {
 
     showGroupsTodo(groups[0].group_no);
 
+    let k = 0;
     for (let group of groups) {
-        console.log(group);
-        const groupBox = document.createElement('div');
-        groupBox.className = 'group-box';
+        const groupBox = $("<div>").addClass("group-box");
 
-        const groupName = document.createElement('p');
-        groupName.className = 'group-name';
-        groupName.innerHTML = group.group_name;
+        const groupName = $("<p>").addClass("group-name").text(group.group_name);
 
-        const groupMember = document.createElement('div');
-        groupMember.className = 'group-member';
+        const groupMember = $("<div>").addClass("group-member");
 
-        const num = document.createElement('p');
-        num.className = 'num';
+        const num = $("<p>").addClass("num");
         const count = await getGroupMemberCount(group.group_no);
-        num.innerHTML = count + "";
+        num.text(count + "");
 
-        const userIcon = document.createElement('i');
-        userIcon.classList.add('bx');
-        userIcon.classList.add('bx-user');
+        const userIcon = $("<i>").addClass("bx bx-user");
 
-        groupMember.appendChild(num);
-        groupMember.appendChild(userIcon);
-        groupBox.appendChild(groupName);
-        groupBox.appendChild(groupMember);
-        groupContainer.appendChild(groupBox);
+        groupMember.append(num, userIcon);
+        groupBox.append(groupName, groupMember);
+        $(".group-container").append(groupBox);
 
-        groupBox.onclick = () => {
+        groupBox.on('click', function() {
             showGroupsTodo(group.group_no);
-        }
+        });
+
+        if (k === 0)
+            groupBox.click();
+
+        k = 1;
     }
 }
+
 
 // 선택된 그룹의 투두 보여주기
 async function showGroupsTodo(groupNo) {
@@ -74,6 +70,11 @@ async function showGroupsTodo(groupNo) {
 
     todoNameDiv.innerHTML = group.group_todo;
     unitDiv.innerHTML = group.group_unit;
+    if (group.bestuser_no === null) {
+        bestUserNameDiv.innerHTML = '아직 베스트 ';
+        bestAmountDiv.innerHTML = '유저가 존재하지 않습니다.';
+        return;
+    }
     const bestUserName = await getUserName(group.bestuser_no);
     bestUserNameDiv.innerHTML = bestUserName + '님,';
     bestAmountDiv.innerHTML = group.group_bestamount + group.group_unit;
@@ -128,5 +129,5 @@ updateButton.onclick = () => {
         console.error(error);
     });
 
-    location.reload();
+    // location.reload();
 }
