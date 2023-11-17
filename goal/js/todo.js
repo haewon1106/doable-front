@@ -28,7 +28,9 @@ async function showUsersCategory() {
             categoryOpiton.value = result.category_no;
 
             // 배경색 적용
-            categoryColors[i].style.backgroudColor = result.category_color;
+            categoryColors[i].style.backgroundColor = results[0].category_color;
+            console.log(results[0].category_color)
+            console.log(categoryColors[i].style.backgroundColor);
             selbox.appendChild(categoryOpiton);
         });
 
@@ -41,24 +43,33 @@ async function showUsersCategory() {
 }
 
 // 카테고리 이벤트
-categorySelBox.forEach(selbox => {
+categorySelBox.forEach((selbox, i) => {
 
     // 바뀌었을 때
     selbox.onchange = () => {
         console.log(selbox.value);
-        if (selbox.value == 'direct') {
-            selbox.onkeydown = e => {
-                console.log(e);
-            }
+        if (selbox.value === 'direct') {
+            categoryColors[i].style.backgroundColor = '#FFE0DE';
+            return;
         }
+        axios.get(`${BASE_URL}/categories/${selbox.value}`)
+            .then(response => {
+                const category = response.data;
+                categoryColors[i].style.backgroundColor = category.category_color;
+                console.log('배경 색:',categoryColors[i].style.backgroundColor);
+            })
+        
     }
 });
 
 categoryFields.forEach((field, i) => {
     field.onkeydown = e => {
         if (e.keyCode === 13) {
+            if (categoryColors[i].style.backgroundColor ==='#FFE0DE') return;
+
             const name = field.value;
-            const color = categoryColors[i].style.backgroudColor;
+            const color = categoryColors[i].style.backgroundColor;
+
             createPost(color, name);
         }
     }
@@ -74,6 +85,7 @@ function createPost(color, name) {
     axios.post(`${BASE_URL}/categories`, request)
         .then(response => {
             console.log(response.data);
+            location.reload();
         })
         .catch(error => {
             console.error(error);
