@@ -110,10 +110,6 @@ async function showUsersTodos() {
                 const modalContent = document.createElement('div');
                 modalContent.className = 'modalContent';
 
-                const correction = document.createElement('div');
-                correction.className = 'correction';
-                correction.innerHTML = '수정';
-
                 const deleteDiv = document.createElement('div');
                 deleteDiv.className = 'delete';
                 deleteDiv.innerHTML = '삭제';
@@ -122,7 +118,6 @@ async function showUsersTodos() {
                 keywordIcon.appendChild(keywordName);
                 keywordBox.appendChild(keywordIcon);
                 keywordBox.appendChild(dotIcon);
-                modalContent.appendChild(correction);
                 modalContent.appendChild(deleteDiv);
                 goalBox.appendChild(keywordBox);
                 goalBox.appendChild(goal);
