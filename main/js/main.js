@@ -141,10 +141,9 @@ async function showUsersTodos() {
                 // 완료된 투두 스타일
                 console.log(data.todo_completed === 1);
                 if (data.todo_completed === 1) {
-                    goalBox.style.background = '#E9E9E9'
                     dotIcon.style.display = 'none';
-                    keywordName.style.color = 'white';
-                    goal.style.color = 'white';
+                    goalBox.style.opacity = '0.3'
+                    goalBox.style.border = '1px solid var(--gray-300)'
                     goal.onclick = null;
                 }
             }
