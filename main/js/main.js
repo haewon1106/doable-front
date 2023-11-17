@@ -52,7 +52,7 @@ async function showUserInfo() {
         .then(response => {
             const user = response.data;
             welcomeComent.innerHTML = `안녕하세요, ${user.user_name}님`;
-            remainingGoals.innerHTML = `오늘의 목표가 ${remainingTodoCount}개 남았습니다`; 
+            remainingGoals.innerHTML = `오늘의 목표가 ${remainingTodoCount}개 남았습니다`;
 
         }).catch((err) => {
             console.error(err);
@@ -66,7 +66,7 @@ async function showUsersTodos() {
             const dataList = response.data;
 
             remainingTodoCount = dataList.length;
-            
+
             for (let data of dataList) {
 
                 const goalBox = document.createElement('div');
@@ -149,7 +149,11 @@ async function showUsersTodos() {
                     dotIcon.style.display = 'none';
                     goalBox.style.opacity = '0.3'
                     goalBox.style.border = '1px solid var(--gray-300)'
-                    goal.onclick = null;
+                    goal.onclick = () => {
+                        axios.patch(`${BASE_URL}/todos/${data.todo_no}/incomplete`)
+                            .then(response => window.open('/main/', '_top'))
+                            .catch(error => false);
+                    };
                     remainingTodoCount--;
                 }
             }
