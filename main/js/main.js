@@ -102,7 +102,6 @@ async function showUsersTodos() {
 
                 const dotIcon = document.createElement('i');
                 dotIcon.classList.add('bx', 'bx-dots-vertical-rounded', 'dot-icon');
-
                 const goal = document.createElement('goal');
                 goal.className = 'goal';
                 goal.innerHTML = data.todo_name;
@@ -217,4 +216,13 @@ async function showUsersCategories() {
 
 
     showUsersTodos();
+}
+
+document.onclick = e => {
+    if (e.target.className === 'goals-container') {
+        [...document.getElementsByClassName('modalContent')].forEach(e => {
+            e.style.display = 'none';
+        })
+    }
+
 }
