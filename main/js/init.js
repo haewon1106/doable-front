@@ -11,6 +11,7 @@ function saveTodayDate() {
         localStorage.setItem('savedDate', dateString);
         console.log('오늘 날짜를 저장했습니다.');
         initUsersTodos();
+        initUsersCompleted();
     } else {
         console.log('이미 오늘 날짜가 저장되어 있습니다.');
     }
@@ -20,7 +21,30 @@ function saveTodayDate() {
 // 함수 호출
 saveTodayDate();
 
+async function initUsersCompleted() {
+    const user = await axios.get(`${BASE_URL}/users/${USER_NO}`)
+        .then(response => response.data)
+        .catch(error => null);
+
+    if (user === null) return;
+
+    const completedCount = await axios.get(`${BASE_URL}/users/${USER_NO}/todos/completed`)
+        .then(response => response.data.length)
+        .catch(error => 0);
+
+    const request = {
+        user_last_completed: user.user_now_completed,
+        user_now_completed: completedCount
+    };
+    
+    await axios.patch(`${BASE_URL}/users/${USER_NO}/completed`, request)
+        .then(response => console.log(response.data))
+        .catch(error => console.error(error));
+
+}
+
 async function initUsersTodos() {
+
     const todos = await axios(`${BASE_URL}/users/${USER_NO}/todos`)
         .then(response => response.data)
         .catch(error => []);
@@ -31,7 +55,6 @@ async function initUsersTodos() {
 
         const daily = await isDailyTodo(todo.todo_no);
 
-        console.log('d,',todo)
         // 데일리 투두면
         if (daily.length !== 0) {
 
@@ -53,7 +76,6 @@ async function initUsersTodos() {
             continue;
         }
 
-        console.log('g,',todo)
         // 성장 투두 
         const grow = await isGrowTodo(todo.todo_no);
 
@@ -78,7 +100,6 @@ async function initUsersTodos() {
         }
 
         // 일반 투두면 삭제
-        console.log('todo:',todo);
         await axios.delete(`${BASE_URL}/todos/${todo.todo_no}`)
             .then(response => true)
             .catch(error => false);
