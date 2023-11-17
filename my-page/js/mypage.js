@@ -1,6 +1,29 @@
 const profileImageTag = document.getElementsByClassName('profile-image')[0];
 const userNameTag = document.getElementsByClassName('user-name')[0];
 const userIdTag = document.getElementsByClassName('user-id')[0];
+const nameEditField = document.getElementById('name-correction');
+
+// 이름 수정하기
+nameEditField.onkeydown = e => {
+    // 엔터 누르면
+    if (e.keyCode === 13) {
+        const name = nameEditField.value.trim();
+        if (name.length === 0) return;
+
+        const request = {
+            user_name: name
+        };  
+
+        axios.patch(`${BASE_URL}/users/${USER_NO}`, request)
+            .then(response => {
+                nameEditField.style.display = 'none';
+                window.open('/my-page', '_top');    
+            })
+            .catch(error => console.log(error));
+        
+            
+    }
+}
 
 showUserInfo();
 async function showUserInfo() {
