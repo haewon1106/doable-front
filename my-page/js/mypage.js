@@ -17,7 +17,7 @@ nameEditField.onkeydown = e => {
         axios.patch(`${BASE_URL}/users/${USER_NO}`, request)
             .then(response => {
                 nameEditField.style.display = 'none';
-                window.open('/my-page', '_top');    
+                window.open('/my-page/', '_top');    
             })
             .catch(error => console.log(error));
         
